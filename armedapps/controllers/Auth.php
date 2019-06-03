@@ -58,6 +58,7 @@ class Auth extends CI_Controller
                         if ($pasien > 0) {
                         $session = array('id' => $hlo->no_rekamedis, 'nama' => $hlo->nama_pasien, 'status' => 'login','foto'=>$hlo->foto,'group'=>'pasien');
                         $this->session->set_userdata($session);
+                         redirect(base_url() . 'Pasien/dashboard');
                         } else {
                             $this->session->set_flashdata('alert', 'Login Gagal! Username atau Password Salah');
                             redirect(base_url() . 'Auth?pesan=gagal');

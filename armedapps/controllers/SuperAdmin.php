@@ -21,7 +21,7 @@ class SuperAdmin extends CI_Controller
 		$this->load->helper('tanggal');
 
 
-		$date = str_replace('/', '-', date('m-d-Y'));
+		$date = date('Y-m-d');
 		$data['tanggal'] = tgl_dashboard($date);
 		$data['daftar'] = $this->Base_model->get_data_where('pendaftaran', 'tanggal_daftar', $date)->num_rows();
 		$data['show'] = $this->db->query('select * from pendaftaran where tanggal_daftar = "' . $date . '" Limit 3')->result();
