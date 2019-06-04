@@ -1,12 +1,17 @@
   <!-- Page Content -->
+  <div class="section">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<?php echo base_url('assets/img/user/').$this->session->userdata('foto'); ?>" height="200" width="200">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fas fa-plus"></i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
       </div>
     </div>
+  </div>
+  </div>
   

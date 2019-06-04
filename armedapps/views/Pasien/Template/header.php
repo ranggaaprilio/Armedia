@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title><?php echo $title ?></title>
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap/bootstrap.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/Datatables/datatables.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datepicker/tempusdominus-bootstrap-4.css'); ?>">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Sistem Pelayanan Puskesmas</title>
+
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="<?= base_url() ?>assets/css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link href="<?= base_url() ?>assets/css/custom/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/animate/animate.css">
 </head>
-<body style="background-color: #DADADA">
+<body>
