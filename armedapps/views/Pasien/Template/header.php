@@ -13,4 +13,4 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/animate/animate.css">
 </head>
-<body>
+<body style="background-color: #FDE90A">
