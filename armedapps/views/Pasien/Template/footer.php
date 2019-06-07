@@ -3,10 +3,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col l3 s12">
-					<img src="<?= base_url() ?>assets/img/rangga.png" alt="" class="circle responsive-img" alt="Gambar Tidak dapat dibuka">
-
-
-
+					<h5>Armedia</h5>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nisi, id eius quisquam perferendis inventore, error fuga quibusdam officiis. Optio doloribus, et ipsam eum unde ad voluptatibus, accusamus modi sequi?</p>
 				</div>
 				<div class="col l3 s12">
 
@@ -29,23 +27,30 @@
 
 	<!--  Scripts-->
 
-	<script src="<?php base_url() ?>assets/js/jquery/jquery-3.2.1.min.js"></script>
-	<script src="<?php base_url() ?>assets/js/materialize/materialize.js"></script>
-	<script src="<?php base_url() ?>assets/js/custom/init.js"></script>
-	<script src="<?php base_url() ?>assets/vendor/wow/dist/wow.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/js/jquery/jquery-3.2.1.min.js"></script>
+	<script src="<?= base_url() ?>assets/js/jquery/jquery-3.2.1.min.js"></script>
+	<script src="<?= base_url() ?>assets/js/materialize/materialize.js"></script>
+	<script src="<?= base_url() ?>assets/js/custom/init.js"></script>
+	<script src="<?= base_url() ?>assets/vendor/wow/dist/wow.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/DataTables/jquery.dataTables.js"></script>
 	<script src="<?php echo base_url() . 'assets/Datatables/datatables.js'; ?>"></script>
 	<script src="<?php echo base_url() . 'assets/js/sweetalert/sweetalert2.all.min.js'; ?>"></script>
 	<script>
 		new WOW().init();
-		//  floating button inisialisasi
-		$(document).ready(function() {
-			$('.fixed-action-btn').floatingActionButton();
-		});
+		// combo box
+		$(document).ready(function(){
+   		 $('select').formSelect();
+  		});
+  		// datepicker
+		$(document).ready(function(){
+	    $('.datepicker').datepicker({
+	    	format:'yyyy-mm-dd'
+	    });
+	  	});
 		instance.open();
 		instance.close();
 		instance.destroy();
+
+		      
 	</script>
 	</body>
 </html>
