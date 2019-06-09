@@ -62,7 +62,7 @@
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $j->no_rekamedis ?></td>
                                             <td><?php echo $j->no_ktp; ?></td>
-                                            <td><img src="<?php echo base_url() . 'assets/img/' . $j->foto; ?>" alt="Tidak Ada Foto" width="50" height="50"></td>
+                                            <td><img src="<?php echo base_url() . 'assets/img/user/' . $j->foto; ?>" alt="Tidak Ada Foto" width="50" height="50"></td>
                                             <td><?php echo $j->nama_pasien; ?></td>
                                             <td><?php echo $j->email; ?></td>
                                             <td><?php echo $j->tempat_lahir; ?></td>

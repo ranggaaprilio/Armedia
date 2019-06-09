@@ -66,12 +66,10 @@
                                                 
 
                                                 <?php if ($u->kategori=='Dewasa') {?>
-                                                    <a href="<?php echo base_url() . 'dokter/detail_rawat/' . $u->no_rawat ?>" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
+                                                    <a href="<?php echo base_url() . 'dokter/detail_rawat/' . $u->no_rawat ?>" class="btn btn-success btn-md"><i class="fas fa-pencil-alt"></i></a>
                                                <?php }else {?>
-                                                <a href="<?php echo base_url() . 'dokter/detail_riwayat/' . $u->no_rawat ?>" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="<?php echo base_url() . 'dokter/detail_riwayat/' . $u->no_rawat ?>" class="btn btn-success btn-md"><i class="fas fa-pencil-alt"></i></a>
                                                <?php } ?>
-                                                
-                                                <a href="<?php echo base_url() . 'dokter/hapus_rawat/' . $u->no_rawat ?>" class="btn btn-warning btn-xs"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php } ?>

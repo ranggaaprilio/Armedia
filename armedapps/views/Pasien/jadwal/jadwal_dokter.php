@@ -16,41 +16,35 @@
     <div class="col s8 m8">
       <div class="card white">
         <div class="card-content">
-          <span class="card-title">Daftar Antrian Hari ini</span>
+          <span class="card-title">Jadwal Dokter</span>
           <div class="responsive-table">
                             <table class="table table-striped table-bordered" id="table-datatable" style="width:100%;">
-                                <thead>
-                                    <tr>
-                                        <th>No Rawat</th>
+                              <tr>
+                                        <th>No</th>
+                                        <th>ID Dokter</th>
+                                        <th>Nama</th>
                                         <th>Tanggal</th>
-                                        <th>Dokter</th>
-                                        <th>Status</th>
-                                  
+                                        <th>Jam Mulai</th>
+                                        <th>Jam Akhir</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($daftar as $u) {
+                                    foreach ($jadwal as $j) {
                                         ?>
                                         <tr>
-
-                                            <td><?php echo $u->no_rawat ?></td>
-                                            <td><?php echo $u->tanggal_daftar; ?></td>
-                                            <td><?php
-                                                $dokter = $this->Base_model->get_data_where('dokter', 'id_dokter', $u->id_dokter)->row();
-                                                echo $dokter->nama;
-                                                ?></td>
-                                            <td> 
-                                                <?php if ($u->status=='1') {?>
-                                                    <a class="waves-effect waves-light btn blue"><i class=" fas fa-clock"></i> Waiting</a>
-                                                <?php } else {?>
-                                                    <button class="btn btn-primary btn-xs"><i class="fas fa-clipboard-check"> Selesai</i></button>
-                                                <?php } ?></td>
+                                            <td><?php echo $no++; ?></td>
+                                            <td><?php echo $j->id_dokter ?></td>
+                                            <td><?php echo $j->nama; ?></td>
+                                            <td><?php echo $j->tanggal; ?></td>
+                                            <td><?php echo $j->jam_mulai; ?></td>
+                                            <td><?php echo $j->jam_akhir; ?></td>
+                                            
                                         </tr>
                                     <?php
                                 } ?>
-                                </tbody>
                             </table>
                         </div>
         </div>

@@ -15,16 +15,17 @@ class SuperAdmin extends CI_Controller
 		// load model untuk kode otomatis
 		$this->load->model('Generate_code');
 	}
+	
 	// landing page
-	public function index($offset = 0)
+	public function index()
 	{
 		$this->load->helper('tanggal');
 
 
-		$date = date('Y-m-d');
+		$date = date('m-d-Y');
 		$data['tanggal'] = tgl_dashboard($date);
-		$data['daftar'] = $this->Base_model->get_data_where('pendaftaran', 'tanggal_daftar', $date)->num_rows();
-		$data['show'] = $this->db->query('select * from pendaftaran where tanggal_daftar = "' . $date . '" Limit 3')->result();
+		$data['daftar'] = $this->Base_model->get_data_where('pendaftaran', 'tanggal_daftar', date('Y-m-d'))->num_rows();
+		$data['show'] = $this->db->query('select * from pendaftaran where tanggal_daftar = "' . date('Y-m-d') . '" Limit 3')->result();
 		$data['title'] = "Landing on Dashboard";
 		$this->load->view('superadmin/dashboard', $data);
 	}

@@ -12,5 +12,6 @@
 	<link href="<?= base_url() ?>assets/css/custom/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 	<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/animate/animate.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/DataTables/DataTables-1.10.18/css/dataTables.foundation.min.css">
 </head>
 <body style="background-color:#E5E2E2 ">

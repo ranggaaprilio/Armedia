@@ -5,7 +5,7 @@
         <ul class="right hide-on-med-and-down">
           <li><a class="white-text " href="<?=base_url('pasien/Dashboard') ?>"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a class="white-text" href="<?= base_url('pasien/pendaftaran/'). $this->session->userdata('id');?>"><i class="fas fa-hospital"></i> Pendaftaran Pemeriksaan</a></li>
-          <li><a class="white-text" href="#tentang_kami"><i class="fas fa-history"> </i>History</a></li>
+          <li><a class="white-text" href="<?=base_url('pasien/history/') ?>"><i class="fas fa-history"> </i>History</a></li>
           <li><a class="white-text" href="<?= base_url() ?>auth/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
         </ul>
 
