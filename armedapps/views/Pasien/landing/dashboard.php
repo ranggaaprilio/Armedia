@@ -5,15 +5,36 @@
       <div class="card white">
         <div class="card-content">
           <span class="card-title">Selamat Datang <?php echo $this->session->userdata('nama'); ?></span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-         <a class="waves-effect waves-light btn-small">Ubah Data Diri</a>
         </div>
       </div>
     </div>
-    <div class="col s8 m8">
+      <div class="col s8 m8">
+      <div class="card white">
+        <div class="card-content">
+          <span class="card-title">Lihat Antrian Berdasarkan Dokter</span>
+          <div class="row"> 
+         <form method="post" action="<?php echo base_url('pasien/show') ?>">
+              <div class="input-field col s12 m12">
+                <select id="id" name="id">
+                  <option value="" disabled selected>Choose your option</option>
+                   <?php foreach ($dokter as $d) { ?>
+                    <option value="<?php echo $d->id_dokter ?>"><?php echo $d->nama  ?></option>
+                  <?php } ?>
+                </select>
+                <label>Pilih Dokter</label>
+              </div>
+              <div class="col s0 m10">
+              </div>
+              <div class="col s0 m2">
+                <button class="waves-effect waves-light btn blue">Cari</button>
+              </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php if ($daftar != 0) {?>
+     <div class="col s8 m8">
       <div class="card white">
         <div class="card-content">
           <span class="card-title">Daftar Antrian Hari ini</span>
@@ -28,8 +49,8 @@
                                   
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php
+                                <tbody id=daftar>
+                                 <?php
                                     $no = 1;
                                     foreach ($daftar as $u) {
                                         ?>
@@ -56,6 +77,7 @@
         </div>
       </div>
     </div>
+    <?php } ?>
   </div>
   </div>
   

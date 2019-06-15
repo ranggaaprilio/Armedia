@@ -8,7 +8,6 @@ class Application extends CI_Controller
 	{
 		$this->load->view('front/index');
 	}
-
 }
 
 /* End of file controllername.php */

@@ -19,7 +19,7 @@ class Generate_code extends CI_Model
         }
 
         $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT);
-        $kodeadmin = 'ADM' . '-' . $kodemax;
+        $kodeadmin = 'ADM' . $kodemax;
 
         return $kodeadmin;
     }
@@ -38,7 +38,7 @@ class Generate_code extends CI_Model
         }
 
         $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT);
-        $kodedokter = 'D-KIA' . '-' . $kodemax;
+        $kodedokter = 'DKIA'. $kodemax;
 
         return $kodedokter;
     }
@@ -57,7 +57,7 @@ class Generate_code extends CI_Model
         }
 
         $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT);
-        $kodedokter = 'RM' . '-' . 'KIA' . '-' . $kodemax;
+        $kodedokter = 'RMKIA'. $kodemax;
 
         return $kodedokter;
     }
@@ -99,7 +99,7 @@ class Generate_code extends CI_Model
         }
 
         $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT);
-        $kodeobat = $id . '-' . $kodemax;
+        $kodeobat = $id . $kodemax;
 
         return $kodeobat;
     }
@@ -119,7 +119,7 @@ class Generate_code extends CI_Model
         }
 
         $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);
-        $kodebalita = $no_rm . '-' . $kodemax;
+        $kodebalita = $no_rm . $kodemax;
 
         return $kodebalita;
     }

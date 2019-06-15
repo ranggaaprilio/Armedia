@@ -13,12 +13,27 @@ class Pasien extends CI_Controller {
 		$data = array(
 			'title' => 'Halaman Pasien',
 			'folder' => 'Landing',
-			'daftar'=> $this->Base_model->get_data_where('pendaftaran', 'tanggal_daftar',date('Y-m-d'))->result(),
+			'dokter'=>$this->Base_model->get_data('dokter','id_dokter')->result(),
+			'daftar'=>0,
 			'file' => 'dashboard'
 		);
 		$this->load->view('pasien/template/index', $data);
-		// $this->load->view('pasien/landing/welcome', $data);
-}
+	}
+	
+	public function show()
+	{
+		$id=$this->input->post('id');
+		$where = array('tanggal_daftar' => date('Y-m-d') , 'id_dokter' =>$id );
+		$data = array(
+			'title' => 'Halaman Pasien' ,
+			'folder' => 'Landing',
+			'dokter'=>$this->Base_model->get_data('dokter','id_dokter')->result(),
+			'daftar'=> $this->Base_model->edit_data($where,'pendaftaran')->result(),
+			'file'=>'dashboard'
+		 );
+		$this->load->view('pasien/template/index', $data);
+		
+	}
 
 	public function pendaftaran($id)
 	{
@@ -55,9 +70,8 @@ class Pasien extends CI_Controller {
 		$tanggal_input =$this->input->post('tanggal_d');
 			$no_rm = $this->session->userdata('id');
 			$dokter = $this->input->post('id');
-			$kode = str_replace("-", "", $dokter);
 			$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
-			$no_rawat = $kode . '-' . $tanggal_input . '-' . $no_regist;
+			$no_rawat = $dokter . '-' . $tanggal_input . '-' . $no_regist;
 			$kategori=$this->input->post('kategori');
 
 	
