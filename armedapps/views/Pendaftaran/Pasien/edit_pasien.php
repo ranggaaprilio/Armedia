@@ -76,6 +76,13 @@
                             <?= form_error('alamat', '<small class="text-danger pl-4">', '</small>') ?>
                         </div>
 
+                          <!-- PEnanggung Jawab -->
+                         <div class="form-group">
+                            <label for="input-select">Penanggung Jawab</label>
+                            <input id="pj" type="text" name="pj" placeholder="Masukan Nama Penanggung jawab" autocomplete="off" class="form-control" value="<?php echo $e->pj ?>">
+                            <?= form_error('pj', '<small class="text-danger pl-4">', '</small>') ?>
+                        </div>
+
                         <!-- Pilihan -->
                         <div class="row">
                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">

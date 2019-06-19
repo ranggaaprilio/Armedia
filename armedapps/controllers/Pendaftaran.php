@@ -375,6 +375,11 @@ class Pendaftaran extends CI_Controller {
 			'matches' => 'password tidak cocok'
 
 		]);
+
+		$this->form_validation->set_rules('pj', 'PJ', 'trim|required', [
+			'required' => 'anda belum mengisi nama penanggung jawab',
+
+		]);
 	}
 	//Load Tampilan tambah pasien+action 
 	public function add_pasien()
@@ -403,6 +408,7 @@ class Pendaftaran extends CI_Controller {
 			$email = $this->input->post('email');
 			$password = $this->input->post('password1');
 			$foto = 'default.png';
+			$pj=$this->input->post('pj');
 
 
 			$data = array(
@@ -415,7 +421,8 @@ class Pendaftaran extends CI_Controller {
 				'alamat' => $alamat,
 				'email' => $email,
 				'password' =>  md5($password),
-				'foto' => $foto
+				'foto' => $foto,
+				'pj'=>$pj
 
 			);
 
@@ -447,6 +454,7 @@ class Pendaftaran extends CI_Controller {
 		$ta_l = $this->input->post('tanggal');
 		$telp = $this->input->post('telp');
 		$alamat = $this->input->post('alamat');
+		$pj=$this->input->post('pj');
 
 		$this->form_validation->set_rules('ktp', 'No KTP', 'trim|required|numeric', [
 			'required' => 'No KTP Wajib di isi', 'numeric' => 'No KTP Wajib Berupa Angka'
@@ -467,6 +475,11 @@ class Pendaftaran extends CI_Controller {
 			'required' => 'anda belum memilih alamat'
 		]);
 
+		$this->form_validation->set_rules('pj', 'PJ', 'required', [
+			'required' => 'anda belum mengisi penanggung jawab'
+		]);
+
+
 
 		if ($this->form_validation->run() != false) {
 			$where = array('no_rekamedis' => $id);
@@ -477,7 +490,8 @@ class Pendaftaran extends CI_Controller {
 				'tempat_lahir' => $te_l,
 				'tanggal_lahir' => $ta_l,
 				'no_telp' => $telp,
-				'alamat' => $alamat
+				'alamat' => $alamat,
+				'pj'=>$pj
 			);
 			$this->Base_model->update_data($where, $data, 'pasien');
 			$this->session->set_flashdata('alert', 'Diubah');

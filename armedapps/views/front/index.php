@@ -23,11 +23,11 @@
 					<li><a class="white-text " href="<?php base_url() ?>"><i class="fas fa-home"></i> Home</a></li>
 					<li><a class="white-text" href="#pelayanan"><i class="fas fa-info-circle"></i> Feature</a></li>
 					<li><a class="white-text" href="#tentang_kami"><i class="fas fa-building"> </i> About Apps</a></li>
+					<li><a class="white-text" href="<?= base_url() ?>auth"><i class="fas fa-clipboard-list"></i> Register</a></li>
 					<li><a class="white-text" href="<?= base_url() ?>auth"><i class="fas fa-sign-in-alt"></i> Sign in</a></li>
 				</ul>
 
 				<ul id="nav-mobile" class="sidenav white">
-					<li><a href="#">Home</a></li>
 					<li><a href="#">Home</a></li>
 					<li><a href="#">Pelayanan</a></li>
 					<li><a href="#">Tentang Kami</a></li>

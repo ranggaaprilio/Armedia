@@ -37,6 +37,18 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white mb-1 btn-rounded" style="background-color:#00897b !important" href="<?= base_url('SuperAdmin/Data_tindakan') ?>"><i class=" fas fa-file-medical text-white"></i>Data Tindakan</a>
                             </li>
+                              <a class="nav-link text-white mb-1 btn-rounded" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2" style="background-color:#00897b !important"><i class="fa fa-fw fa-rocket text-white"></i>Laporan</a>
+                                <div id="submenu-2" class="collapse submenu" style="background-color:#00897b !important">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="pages/cards.html">Laporan Data Pasien</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="pages/general.html">Laporan Data Kunjungan</a>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
                         </ul>
                     </div>
                 </nav>
