@@ -752,7 +752,7 @@ class SuperAdmin extends CI_Controller
 			'required' => 'Kolom Nama Obat Wajib Diisi'
 		]);
 		$this->form_validation->set_rules('jenis', 'Jenis', 'required', [
-			'required' => 'Dosis Harus Diisi'
+			'required' => 'Jenis Harus Diisi'
 		]);
 
 		$this->form_validation->set_rules('dosis_aturan_obat', 'Dosis', 'required', [
@@ -760,7 +760,7 @@ class SuperAdmin extends CI_Controller
 		]);
 
 		$this->form_validation->set_rules('satuan', 'satuan', 'required', [
-			'required' => 'Aturan Pakai Harus Diisi'
+			'required' => 'Satuan Pakai Harus Diisi'
 		]);
 	}
 	public function add_obat()
@@ -1140,6 +1140,18 @@ public function update_profile()
 			$this->session->set_flashdata('error',form_error('password1'));
 			redirect('superadmin','refresh');
 		}
+	}
+
+	public function laporan_pasien()
+	{
+		$data = array(
+			'title' => 'Armedia - Laporan',
+			'pasien' => $this->Base_model->get_data('pasien','no_rekamedis')->result(),
+			'folder' => 'laporan',
+			'file' => 'pasien',
+		);
+		
+		$this->load->view('superadmin/template/index', $data);
 	}
 
 }

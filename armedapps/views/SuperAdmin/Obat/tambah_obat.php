@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <label for="dosis-aturan-obat">Dosis Aturan Obat</label>
                             <input id="dosis-aturan-obat" type="text" name="dosis_aturan_obat" placeholder="Masukan Dosis Aturan Obat" autocomplete="off" class="form-control" value="<?= set_value('dosis-aturan-obat   ') ?>">
-                            <?= form_error('dosis-aturan-obat', '<small class="text-danger pl-4">', '</small>') ?>
+                            <?= form_error('dosis_aturan_obat', '<small class="text-danger pl-4">', '</small>') ?>
                         </div>
                          <!-- Pilihan -->
                         <div class="row">

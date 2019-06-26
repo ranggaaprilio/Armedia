@@ -41,7 +41,7 @@
                                 <div id="submenu-2" class="collapse submenu" style="background-color:#00897b !important">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link text-white" href="pages/cards.html">Laporan Data Pasien</a>
+                                            <a class="nav-link text-white" href="<?= base_url('superadmin/laporan_pasien') ?>">Laporan Data Pasien</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-white" href="pages/general.html">Laporan Data Kunjungan</a>

@@ -8,6 +8,11 @@ class Application extends CI_Controller
 	{
 		$this->load->view('front/index');
 	}
+
+	function regist()
+	{
+		$this->load->view('front/regist');
+	}
 }
 
 /* End of file controllername.php */

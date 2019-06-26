@@ -4,14 +4,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Sistem Pelayanan Puskesmas</title>
+	<title>Sistem Pelayanan Armedia</title>
 
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="<?php base_url() ?>assets/css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-	<link href="<?php base_url() ?>assets/css/custom/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-	<link rel="stylesheet" href="<?php base_url() ?>assets/vendor/fontawesome-free/css/all.css">
-	<link rel="stylesheet" href="<?php base_url() ?>assets/css/animate/animate.css">
+	<link href="<?= base_url() ?>assets/css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link href="<?= base_url() ?>assets/css/custom/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/animate/animate.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 					<li><a class="white-text " href="<?php base_url() ?>"><i class="fas fa-home"></i> Home</a></li>
 					<li><a class="white-text" href="#pelayanan"><i class="fas fa-info-circle"></i> Feature</a></li>
 					<li><a class="white-text" href="#tentang_kami"><i class="fas fa-building"> </i> About Apps</a></li>
-					<li><a class="white-text" href="<?= base_url() ?>auth"><i class="fas fa-clipboard-list"></i> Register</a></li>
+					<li><a class="white-text" href="<?= base_url() ?>application/regist"><i class="fas fa-clipboard-list"></i> Register</a></li>
 					<li><a class="white-text" href="<?= base_url() ?>auth"><i class="fas fa-sign-in-alt"></i> Sign in</a></li>
 				</ul>
 
@@ -80,11 +80,9 @@
 					<div class="icon-block">
 
 						<h2 class="center brown-text animated infinite flash delay-2s"><i class="fas fa-bolt"></i></h2>
-						<h5 class="center wow fadeInUp" data-wow-delay="1s">Pelayanan Yang cepat</h5>
+						<h5 class="center wow fadeInUp" data-wow-delay="1s">Pendaftaran Online</h5>
 
-						<p class="light wow fadeInUp" data-wow-delay="1s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-							autem. Voluptate iste, quae aliquid nam ex voluptatum illo tempore, obcaecati molestiae, iusto harum delectus
-							dolorem dignissimos sapiente sit esse nesciunt.</p>
+						<p class="light wow fadeInUp" data-wow-delay="1s">Pendaftaran Pemeriksaan dilakukan secara online untuk mempermudah pendaftaran dari pasien yang akan memeriksakan diri ke dokter</p>
 
 					</div>
 				</div>
@@ -94,9 +92,7 @@
 						<h2 class="center brown-text animated infinite flash delay-2s"><i class="fas fa-bed"></i></h2>
 						<h5 class="center wow fadeInUp" data-wow-delay="2s">Riwayat Medis</h5>
 
-						<p class="light wow fadeInUp" data-wow-delay="2s">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-							Explicabo fuga autem, dolore porro optio voluptatibus voluptate officiis suscipit? Eum sit maiores quod officia
-							eius rerum possimus nulla quas earum. Perspiciatis!</p>
+						<p class="light wow fadeInUp" data-wow-delay="2s">Menyimpan semua data rekam medis pasien secara rapih dan aman kedalam komputer server sehingga memudahkan dalam pencarian data rekam medis pasien </p>
 					</div>
 				</div>
 
@@ -105,9 +101,7 @@
 						<h2 class="center brown-text animated infinite flash delay-2s"><i class="fas fa-medkit"></i></h2>
 						<h5 class="center wow fadeInUp" data-wow-delay="3s">Daftar Obat</h5>
 
-						<p class="light wow fadeInUp" data-wow-delay="3s">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum
-							aut provident sint ipsum quia velit nostrum quis dolorem tenetur consequuntur, at harum nobis ex tempore
-							accusamus? Ducimus temporibus expedita aperiam? </p>
+						<p class="light wow fadeInUp" data-wow-delay="3s">Setiap Pasien dapat melihat informasi obat yang telah diberikan dari dokter secara online dengan mengakses halaman pasien</p>
 					</div>
 				</div>
 			</div>
@@ -190,10 +184,10 @@
 
 	<!--  Scripts-->
 
-	<script src="<?php base_url() ?>assets/js/jquery/jquery-3.2.1.min.js"></script>
-	<script src="<?php base_url() ?>assets/js/materialize/materialize.js"></script>
-	<script src="<?php base_url() ?>assets/js/custom/init.js"></script>
-	<script src="<?php base_url() ?>assets/vendor/wow/dist/wow.min.js"></script>
+	<script src="<?= base_url() ?>assets/js/jquery/jquery-3.2.1.min.js"></script>
+	<script src="<?= base_url() ?>assets/js/materialize/materialize.js"></script>
+	<script src="<?= base_url() ?>assets/js/custom/init.js"></script>
+	<script src="<?= base_url() ?>assets/vendor/wow/dist/wow.min.js"></script>
 	<script>
 		new WOW().init();
 		//  floating button inisialisasi
