@@ -361,6 +361,9 @@ class Pendaftaran extends CI_Controller {
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required', [
 			'required' => 'anda belum memilih alamat'
 		]);
+		$this->form_validation->set_rules('pj', 'PJ', 'required', [
+			'required' => 'anda belum mengisi penanggung jawab'
+		]);
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[pasien.email]|valid_email', [
 			'required' => 'Kolom Username Wajib Diisi', 'is_unique' => 'Username telah digunakan ', 'valid_email' => 'Format Email yang anda masukan tidak valid'
 		]);
@@ -373,11 +376,6 @@ class Pendaftaran extends CI_Controller {
 		$this->form_validation->set_rules('password2', 'Password', 'trim|required|matches[password1]', [
 			'required' => 'anda belum mengisi password',
 			'matches' => 'password tidak cocok'
-
-		]);
-
-		$this->form_validation->set_rules('pj', 'PJ', 'trim|required', [
-			'required' => 'anda belum mengisi nama penanggung jawab',
 
 		]);
 	}
@@ -406,9 +404,9 @@ class Pendaftaran extends CI_Controller {
 			$telp = $this->input->post('telp');
 			$alamat = $this->input->post('alamat');
 			$email = $this->input->post('email');
+			$pj=  $this->input->post('pj');
 			$password = $this->input->post('password1');
 			$foto = 'default.png';
-			$pj=$this->input->post('pj');
 
 
 			$data = array(
@@ -419,13 +417,13 @@ class Pendaftaran extends CI_Controller {
 				'tanggal_lahir' => $ta_l,
 				'no_telp' => $telp,
 				'alamat' => $alamat,
+				'pj'=>$pj,
 				'email' => $email,
 				'password' =>  md5($password),
-				'foto' => $foto,
-				'pj'=>$pj
+				'foto' => $foto
 
 			);
-
+			
 			$this->Base_model->insert_data($data, 'pasien');
 			$this->session->set_flashdata('alert', 'Ditambah');
 			redirect(base_url() . 'pendaftaran/Data_pasien');

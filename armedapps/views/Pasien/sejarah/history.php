@@ -7,8 +7,7 @@
 	    		<div class="responsive-table">
                             <table class="table table-bordered" id="table-datatable" style="width:100%;">
                                 <thead>
-                                    <tr>
-           
+                                    <tr> 
                                         <td>No Rawat</td>
                                         <th>Nama Pasien</th>
                                         <th>Tanggal</th>
@@ -42,6 +41,7 @@
                                                 <?php if ($u->status=='1') {?>
                                                     <a class="waves-effect waves-light btn blue"><i class=" fas fa-check"></i></a>
                                                      <a href="<?php echo base_url() . 'pasien/lihat_obat/' . $u->no_rawat ?>" class="waves-effect waves-light btn disabled"><i class="fa fa-medkit"></i></a>
+                                                     <a href="<?php echo base_url() . 'pasien/print_ticket/' . $u->no_rawat ?>" class="waves-effect waves-light btn red"><i class="fa fa-print"></i>Print</a>
                                                 <?php } else {?>
                                                     <button class="btn btn-primary btn-xs"><i class="fas fa-clipboard-check"> Selesai</i></button>
                                                      <a href="<?php echo base_url() . 'pasien/lihat_obat/' . $u->no_rawat ?>" class="waves-effect waves-light btn red"><i class="fa fa-medkit"></i></a>

@@ -218,6 +218,18 @@ class Pasien extends CI_Controller {
 		}
 	}
 
+	public function print_ticket($no_rm)
+	{
+		$this->load->library('pdf');
+
+		$antrian=$this->Base_model->get_data_where('pendaftaran','no_rawat',$no_rm)->row();
+		$data = array('antrian' => $antrian );
+		$i=$this->pdf;
+		$i->setPaper('A5','landscape');
+		$i->filename="Antrian ".$no_rm.".pdf";
+		$i->load_view('pasien/sejarah/cetak_antrian', $data);
+	}
+
 }
 
 /* End of file Pasien.php */

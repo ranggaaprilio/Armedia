@@ -37,7 +37,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id="table-datatable" style="width:100%;">
+                             <table class="table table-striped table-bordered" id="table-datatable" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -50,6 +50,7 @@
                                         <th>No Telepon</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
+                                        <th>Penanggung Jawab</th>
                                         <th>Pilihan</th>
                                     </tr>
                                 </thead>
@@ -62,13 +63,14 @@
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $j->no_rekamedis ?></td>
                                             <td><?php echo $j->no_ktp; ?></td>
-                                            <td><img src="<?php echo base_url() . 'assets/img/' . $j->foto; ?>" alt="Tidak Ada Foto" width="50" height="50"></td>
+                                            <td><img src="<?php echo base_url() . 'assets/img/user/' . $j->foto; ?>" alt="Tidak Ada Foto" width="50" height="50"></td>
                                             <td><?php echo $j->nama_pasien; ?></td>
                                             <td><?php echo $j->email; ?></td>
                                             <td><?php echo $j->tempat_lahir; ?></td>
                                             <td><?php echo $j->no_telp; ?></td>
                                             <td><?php echo $j->tanggal_lahir; ?></td>
                                             <td><?php echo $j->alamat; ?></td>
+                                            <td><?php echo $j->pj; ?></td>
                                             <td class="nowrap">
                                                 <a href="<?php echo base_url() . 'pendaftaran/edit_pasien/' . $j->no_rekamedis ?>" class="btn btn-primary btn-xs mb-2"><i class="fa fa-edit"></i></a>
                                                 <a href="<?php echo base_url() . 'pendaftaran/delete_pasien/' . $j->no_rekamedis ?>" class="btn btn-warning btn-xs mb-2"><i class="fa fa-trash"></i></a>

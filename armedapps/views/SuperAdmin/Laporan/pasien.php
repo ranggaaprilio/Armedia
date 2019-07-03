@@ -25,18 +25,9 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('alert'); ?>"></div>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class=" col-lg-10 col-md-8 col-sm-8 col-xs-8">
-                                <a href="<?php echo base_url() . 'superadmin/add_pasien'; ?>" class="btn btn-rounded btn-xs text-white btn-danger">Cetak PDF</a>
-                            </div>
-                        </div>
-
-
-                    </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id="table-datatable" style="width:100%;">
+                            <table class="table table-striped table-bordered" id="example" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -49,6 +40,7 @@
                                         <th>No Telepon</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
+                                        <th>Penanggung jawab</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,6 +59,7 @@
                                             <td><?php echo $j->no_telp; ?></td>
                                             <td><?php echo $j->tanggal_lahir; ?></td>
                                             <td><?php echo $j->alamat; ?></td>
+                                            <td><?php echo $j->pj; ?></td>
                                         </tr>
                                     <?php
                                 } ?>

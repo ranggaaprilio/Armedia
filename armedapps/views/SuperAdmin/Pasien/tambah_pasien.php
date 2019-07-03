@@ -72,6 +72,13 @@
                             <?= form_error('alamat', '<small class="text-danger pl-4">', '</small>') ?>
                         </div>
 
+                        <!-- pj  -->
+                        <div class="form-group">
+                            <label for="input-select">Penanggung jawab</label>
+                            <input id="pj" type="text" name="pj" placeholder="Masukan Penanggung Jawab" autocomplete="off" class="form-control" value="<?= set_value('telp') ?>">
+                            <?= form_error('pj', '<small class="text-danger pl-4">', '</small>') ?>
+                        </div>
+
                         <!-- Email -->
                         <div class="form-group">
                             <label>Email</label>

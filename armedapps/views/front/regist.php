@@ -21,8 +21,8 @@
 				<a id="logo-container" href="#" class="brand-logo"><img src="<?= base_url() ?>assets/img/logo armedia.png" alt="Logo" width="200" height="65"></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a class="white-text " href="<?= base_url() ?>"><i class="fas fa-home"></i> Home</a></li>
-					<li><a class="white-text" href="#pelayanan"><i class="fas fa-info-circle"></i> Feature</a></li>
-					<li><a class="white-text" href="#tentang_kami"><i class="fas fa-building"> </i> About Apps</a></li>
+					<li><a class="white-text" href="http://localhost/armedia/#pelayanan"><i class="fas fa-info-circle"></i> Feature</a></li>
+					<li><a class="white-text" href="http://localhost/armedia/#tentang_kami"><i class="fas fa-building"> </i> About Apps</a></li>
 					<li><a class="white-text" href="<?= base_url() ?>application/regist"><i class="fas fa-clipboard-list"></i> Register</a></li>
 					<li><a class="white-text" href="<?= base_url() ?>auth"><i class="fas fa-sign-in-alt"></i> Sign in</a></li>
 				</ul>
@@ -44,66 +44,82 @@
         <div class="card-content black-text">
           <span class="card-title">Registrasi</span>
          <div class="row">
-		    <form class="col s12">
+		    <form class="col s12" action="<?php echo base_url() ?>application/add_pasien" method="post">
 		      <div class="row">
 		        <div class="input-field col s6">
 		          <i class="material-icons prefix">account_circle</i>
-		          <input id="icon_prefix" type="text" class="validate">
+		          <input id="icon_prefix" type="text" class="validate" name="name" value="<?= set_value('name') ?>">
 		          <label for="icon_prefix">Nama Lengkap</label>
+		           <?= form_error('name', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		        <div class="input-field col s6">
 		          <i class="material-icons prefix">card_membership</i>
-		          <input id="icon_telephone" type="tel" class="validate">
+		          <input id="icon_telephone" type="tel" class="validate" name="ktp" value="<?= set_value('ktp') ?>">
 		          <label for="icon_telephone">Nomor KTP</label>
+		           <?= form_error('ktp', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
 		          <i class="material-icons prefix">location_city</i>
-		          <input id="icon_telephone" type="tel" class="validate">
+		          <input id="icon_telephone" type="tel" class="validate" name="te_lahir" value="<?= set_value('te_lahir') ?>">
 		          <label for="icon_telephone">Tempat Lahir</label>
+		           <?= form_error('te_lahir', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
-		         <input type="text" class="datepicker">
+		         <input type="text" class="datepicker" name="tanggal" value="<?= set_value('tanggal') ?>">
 		          <label>Tanggal Lahir</label>
+		           <?= form_error('tanggal', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
 		          <i class="material-icons prefix">contact_phone</i>
-		          <input id="icon_telephone" type="tel" class="validate">
+		          <input id="icon_telephone" type="tel" class="validate"  name="telp" value="<?= set_value('telp') ?>">
 		          <label for="icon_telephone">Telepon</label>
+		           <?= form_error('telp', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
 		          <i class="material-icons prefix">location_on</i>
-		          <input id="icon_telephone" type="tel" class="validate">
+		          <input id="icon_telephone" type="tel" class="validate" name="alamat" value="<?= set_value('alamat') ?>">
 		          <label for="icon_telephone">Alamat</label>
+		           <?= form_error('alamat', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
 		          <i class="material-icons prefix">person_pin</i>
-		          <input id="icon_telephone" type="tel" class="validate">
+		          <input id="icon_telephone" type="tel" class="validate" name="pj" value="<?= set_value('pj') ?>">
 		          <label for="icon_telephone">Penanggung Jawab</label>
+		           <?= form_error('pj', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
 		          <i class="material-icons prefix">email</i>
-		          <input id="icon_telephone" type="tel" class="validate">
+		          <input id="icon_telephone" type="tel" class="validate" name="email" value="<?= set_value('email') ?>">
 		          <label for="icon_telephone">Email</label>
+		           <?= form_error('email', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
 		          <i class="material-icons prefix">edit</i>
-		          <input id="icon_telephone" type="password" class="validate">
+		          <input id="icon_telephone" type="password" class="validate" name="password1" >
 		          <label for="icon_telephone">Password</label>
+		           <?= form_error('password1', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		         <div class="input-field col s6">
 		          <i class="material-icons prefix">edit</i>
-		          <input id="icon_telephone" type="password" class="validate">
+		          <input id="icon_telephone" type="password" class="validate" name="password2">
 		          <label for="icon_telephone">Re-type Password</label>
+		           <?= form_error('password2', '<small class="red-text pl-4">', '</small>') ?>
 		        </div>
 		      </div>
-		    </form>
+		      <div class="row">
+		      	<div class="col s10 m10"></div>
+		      	<div class="col s12 m12">
+		      		
+		      	</div>
+		      </div>
+		  
 		  </div>
         
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
+         <button type="submit" class="waves-effect waves-light btn">Daftar</button>
         </div>
+          </form>
       </div>
     </div>
   </div>

@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/Datatables/datatables.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datepicker/tempusdominus-bootstrap-4.css'); ?>">
-
+    <link rel="stylesheet" href="<?php echo base_url('assets/DataTables/Buttons-1.5.4/css/buttons.bootstrap4.css') ?>">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
     <style>
         .jumbotron{
             background-image: url('<?php echo base_url('assets/img/back-login.jpg'); ?>');

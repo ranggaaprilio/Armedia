@@ -50,6 +50,7 @@
                                         <th>No Telepon</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
+                                        <th>Penanggung Jawab</th>
                                         <th>Pilihan</th>
                                     </tr>
                                 </thead>
@@ -69,6 +70,7 @@
                                             <td><?php echo $j->no_telp; ?></td>
                                             <td><?php echo $j->tanggal_lahir; ?></td>
                                             <td><?php echo $j->alamat; ?></td>
+                                            <td><?php echo $j->pj; ?></td>
                                             <td class="nowrap">
                                                 <a href="<?php echo base_url() . 'superadmin/edit_pasien/' . $j->no_rekamedis ?>" class="btn btn-primary btn-xs mb-2"><i class="fa fa-edit"></i></a>
                                                 <a href="<?php echo base_url() . 'superadmin/delete_pasien/' . $j->no_rekamedis ?>" class="btn btn-warning btn-xs mb-2"><i class="fa fa-trash"></i></a>

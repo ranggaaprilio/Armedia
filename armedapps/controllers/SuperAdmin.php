@@ -485,6 +485,9 @@ class SuperAdmin extends CI_Controller
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required', [
 			'required' => 'anda belum memilih alamat'
 		]);
+		$this->form_validation->set_rules('pj', 'PJ', 'required', [
+			'required' => 'anda belum mengisi penanggung jawab'
+		]);
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[pasien.email]|valid_email', [
 			'required' => 'Kolom Username Wajib Diisi', 'is_unique' => 'Username telah digunakan ', 'valid_email' => 'Format Email yang anda masukan tidak valid'
 		]);
@@ -525,6 +528,7 @@ class SuperAdmin extends CI_Controller
 			$telp = $this->input->post('telp');
 			$alamat = $this->input->post('alamat');
 			$email = $this->input->post('email');
+			$pj=  $this->input->post('pj');
 			$password = $this->input->post('password1');
 			$foto = 'default.png';
 
@@ -537,6 +541,7 @@ class SuperAdmin extends CI_Controller
 				'tanggal_lahir' => $ta_l,
 				'no_telp' => $telp,
 				'alamat' => $alamat,
+				'pj'=>$pj,
 				'email' => $email,
 				'password' =>  md5($password),
 				'foto' => $foto
@@ -1145,13 +1150,45 @@ public function update_profile()
 	public function laporan_pasien()
 	{
 		$data = array(
-			'title' => 'Armedia - Laporan',
+			'title' => 'Armedia - Laporan Pasien Terdaftar',
 			'pasien' => $this->Base_model->get_data('pasien','no_rekamedis')->result(),
 			'folder' => 'laporan',
 			'file' => 'pasien',
 		);
 		
 		$this->load->view('superadmin/template/index', $data);
+	}
+
+	public function laporan_kunjungan()
+	{
+		$this->load->helper('tanggal');
+		$this->load->model('M_Transaksi');
+			$dari = format($this->input->post('dari'));
+          $sampai = format($this->input->post('sampai'));
+          $this->form_validation->set_rules('dari','Dari Tanggal','required');
+          $this->form_validation->set_rules('sampai','Sampai Tanggal','required');
+
+          if($this->form_validation->run() != false){
+
+          // $data['laporan'] = $this->M_Transaksi->generate($dari,$sampai);
+
+          $data = array(
+			'title' => 'Armedia - Laporan Kunjungan',
+			'folder' => 'laporan',
+			'laporan'=> $this->M_Transaksi->generate($dari,$sampai),
+			'file' => 'kunjunga_generate',
+		);
+		
+		$this->load->view('superadmin/template/index', $data);
+        }else{
+         $data = array(
+			'title' => 'Armedia - Laporan Kunjungan',
+			'folder' => 'laporan',
+			'file' => 'kunjungan',
+		);
+		
+		$this->load->view('superadmin/template/index', $data);
+        }
 	}
 
 }
