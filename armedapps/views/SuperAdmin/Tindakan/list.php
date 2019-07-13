@@ -68,7 +68,7 @@
                                                 <?php if ($u->kategori=='Dewasa') {?>
                                                     <a href="<?php echo base_url() . 'superadmin/detail_rawat/' . $u->no_rawat ?>" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
                                                <?php }else {?>
-                                                <a href="<?php echo base_url() . 'superadmin/detail_riwayat/' . $u->no_rawat ?>" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="<?php echo base_url() . 'superadmin/pilih_anak/' . $u->no_rawat ?>" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
                                                <?php } ?>
                                                 
                                                 <a href="<?php echo base_url() . 'superadmin/hapus_rawat/' . $u->no_rawat ?>" class="btn btn-warning btn-xs"><i class="fa fa-trash"></i></a>

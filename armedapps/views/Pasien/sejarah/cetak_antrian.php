@@ -3,11 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-		<!-- CSS  -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap/bootstrap.css') ?>">
-	<link href="<?= base_url() ?>assets/css/custom/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-	<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.css">
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/DataTables/DataTables-1.10.18/css/">
 </head>
 <body>
 <div class="card">

@@ -68,7 +68,7 @@
                                                 <?php if ($u->kategori=='Dewasa') {?>
                                                     <a href="<?php echo base_url() . 'dokter/detail_rawat/' . $u->no_rawat ?>" class="btn btn-success btn-md"><i class="fas fa-pencil-alt"></i></a>
                                                <?php }else {?>
-                                                <a href="<?php echo base_url() . 'dokter/detail_riwayat/' . $u->no_rawat ?>" class="btn btn-success btn-md"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="<?php echo base_url() . 'dokter/pilih_anak/' . $u->no_rawat ?>" class="btn btn-success btn-md"><i class="fas fa-pencil-alt"></i></a>
                                                <?php } ?>
                                             </td>
                                         </tr>

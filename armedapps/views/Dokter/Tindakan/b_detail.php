@@ -41,7 +41,7 @@
                                     <td width="50%">Nama Balita</td>
                                     <td>
                                         <?php
-                                        $balita = $this->Base_model->get_data_where('balita', 'no_rekamedis', $d->no_rekamedis)->row();
+                                       
                                         $id_balita=$balita->id_balita;
                                         echo $balita->nama;
                                         ?>
@@ -197,9 +197,8 @@
                                             <td><?php echo $o->satuan; ?></td>
                                             <td class="nowrap">
                                                 <?php foreach ($daftar as $k) {?>
-                                                   <a href="<?php echo base_url().'dokter/m_obat/' . $o->id_obat.'/'.$k->no_rekamedis.'/'.$k->kategori.'/'.$k->no_rawat ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                                   <a href="<?php echo base_url().'superadmin/m_obat/' . $o->id_obat.'/'.$k->no_rekamedis.'/'.$k->kategori.'/'.$k->no_rawat.'/'.$id_balita ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                                                 <?php } ?>
-                                               
                                                
                                             </td>
                                         </tr>
@@ -278,7 +277,7 @@
                             </thead>
                             <tbody>
                         <?php 
-                        $where = array('no_rekamedis' => $no_rm ,'kategori'=>$kategori );
+                         $where = array('no_rekamedis' => $no_rm ,'kategori'=>$kategori,'id_balita'=>$id_balita);
 
                         $temp=$this->Base_model->edit_data($where,'temp_obat')->result();
                         $no=1;

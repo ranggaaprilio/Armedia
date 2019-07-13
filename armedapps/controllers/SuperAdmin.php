@@ -970,16 +970,17 @@ class SuperAdmin extends CI_Controller
 		redirect('superadmin/detail_rawat/'.$no_rawat,'refresh');
 	}
 
-	public function m_obat($id_obat,$no_rekamedis,$kategori,$no_rawat)
+	public function m_obat($id_obat,$no_rekamedis,$kategori,$no_rawat,$id_balita)
 	{
 		$data=array(
 			'id_obat'=>$id_obat,
 			'no_rekamedis'=>$no_rekamedis,
 			'kategori'=>$kategori,
-			'no_rawat'=>$no_rawat
+			'no_rawat'=>$no_rawat,
+			'id_balita'=>$id_balita
 		);
 		$this->Base_model->insert_data($data,'temp_obat');
-		redirect('superadmin/detail_riwayat/'.$no_rawat,'refresh');
+		redirect('superadmin/detail_riwayat/'.$no_rawat.'/'.$id_balita,'refresh');
 	}
 
 
@@ -996,11 +997,32 @@ class SuperAdmin extends CI_Controller
 			redirect('superadmin/Data_tindakan');
 	}
 
-	public function detail_riwayat($id)
+	public function pilih_anak($id)
 	{
+			$data = array(
+			'title' => 'Armedia - Pilih anak',
+			'daftar' => $this->db->query("select * from pendaftaran where no_rawat='$id'")->row(),
+			'no_rawat'=>$id,
+			'folder' => 'tindakan',
+			'file' => 'p_anak',
+		);
+		$this->load->view('superadmin/template/index', $data);
+	}
+
+    public function get_data($no_rawat)
+    {
+    	$id=$this->input->post('id_balita');
+    	$this->detail_riwayat($no_rawat,$id);
+    }
+
+	public function detail_riwayat($no_rawat,$id)
+	{
+		$where=['id_balita'=>$id];
+		// var_dump($where);die();
 		$data = array(
 			'title' => 'Armedia - Detail Riwayat',
-			'daftar' => $this->db->query("select * from pendaftaran where no_rawat='$id'")->result(),
+			'daftar' => $this->db->query("select * from pendaftaran where no_rawat='$no_rawat'")->result(),
+			'balita'=> $this->db->get_where('balita',$where)->row(),
 			'obat' => $this->Base_model->get_data('obat', 'id_obat')->result(),
 			'folder' => 'tindakan',
 			'file' => 'b_detail',
@@ -1038,7 +1060,7 @@ class SuperAdmin extends CI_Controller
 			);
 			$this->Base_model->insert_data($data, 'tindakan_balita');
 			$this->session->set_flashdata('alert', 'Ditambah');
-			redirect(base_url() . 'superadmin/detail_riwayat/' . $no_rawat);
+			redirect(base_url() . 'superadmin/detail_riwayat/' . $no_rawat.'/'.$id_balita);
 		} else {
 
 			$data = array(

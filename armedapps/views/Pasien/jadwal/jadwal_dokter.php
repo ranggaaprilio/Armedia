@@ -5,11 +5,6 @@
       <div class="card white">
         <div class="card-content">
           <span class="card-title">Selamat Datang <?php echo $this->session->userdata('nama'); ?></span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-         <a class="waves-effect waves-light btn-small">Ubah Data Diri</a>
         </div>
       </div>
     </div>

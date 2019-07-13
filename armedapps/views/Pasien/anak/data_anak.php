@@ -5,12 +5,8 @@
       <div class="card white">
         <div class="card-content">
           <span class="card-title">Selamat Datang <?php echo $this->session->userdata('nama'); ?></span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
         </div>
-        <div class="card-action">
-         <a class="waves-effect waves-light btn-small">Ubah Data Diri</a>
-        </div>
+      
       </div>
     </div>
     <div class="col s8 m8">
@@ -41,7 +37,7 @@
                                              <td>
                                                 <a href="<?php echo base_url() . 'pasien/edit_data/' . $u->id_balita ?>" class="btn blue smal"><i class="fa fa-edit"></i></a>
                                                 <a href="<?php echo base_url() . 'pasien/delete_data/' . $u->id_balita ?>" class="btn small red "><i class="fa fa-trash"></i></a>
-                                                <a href="<?php echo base_url() . 'pasien/delete_data/' . $u->id_balita ?>" class="btn small"><i class="fa fa-medkit"></i></a>
+                                                <a href="<?php echo base_url() . 'pasien/rb_obat/' . $u->id_balita ?>" class="btn small"><i class="fa fa-medkit"></i></a>
                                             </td>
                                         </tr>
                                     <?php

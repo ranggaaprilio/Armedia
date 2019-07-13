@@ -171,7 +171,7 @@ class Pasien extends CI_Controller {
 		);
 		$this->load->view('pasien/template/index', $data);
 	}
-
+	//TAmbah Data Anak action
 	public function tambah()
 	{
 		$this->load->model('Generate_code');
@@ -218,6 +218,61 @@ class Pasien extends CI_Controller {
 		}
 	}
 
+	//Edit Data Anak
+	public function edit_data($id)
+	{
+		$where = array('id_balita' => $id);
+		$data = array(
+			'title' => 'Armedia - Edit Data Balita',
+			'edit' => $this->db->query("select * from balita where id_balita='$id'")->row(),
+			'folder' => 'anak',
+			'file' => 'edit_anak'
+		);
+		$this->load->view('pasien/template/index', $data);
+	}
+
+	public function update_anak()
+	{
+		$this->form_validation->set_rules('nama', 'Nama Lengkap', 'trim|required',[
+		'required'=>'Nama Lengkap Wajib Di isi'
+		]);
+		$this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required',[
+		'required'=>'Tanggal Lahir Wajib di isi Wajib Di isi'
+		]);
+		$this->form_validation->set_rules('jekel', 'Jenis Kelamin', 'trim|required',[
+		'required'=>'Kolom Jenis kelamin Wajib diisi'
+		]);
+
+		if ($this->form_validation->run() == TRUE ) {
+			$id=$this->input->post('id');
+			$nama=$this->input->post('nama');
+			$tanggal=$this->input->post('tanggal');
+			$jekel=$this->input->post('jekel');
+
+			$no_rm=$this->session->userdata('id');
+			$where = array('id_balita' => $id);
+			$data = array(
+				'no_rekamedis'=>$no_rm,
+				'nama' => $nama,
+				'tanggal_lahir'=>$tanggal,
+				'jekel'=>$jekel
+			);
+
+			$this->Base_model->update_data($where,$data,'balita');
+			redirect(base_url().'pasien/data_anak','refresh');
+		} else {
+			$id=$this->input->post('id');
+			$where = array('id_balita' => $id);
+		$data = array(
+			'title' => 'Armedia - Edit Data Balita',
+			'edit' => $this->db->query("select * from balita where id_balita='$id'")->row(),
+			'folder' => 'anak',
+			'file' => 'edit_anak'
+		);
+		$this->load->view('pasien/template/index', $data);
+		}
+	}
+
 	public function print_ticket($no_rm)
 	{
 		$this->load->library('pdf');
@@ -228,6 +283,32 @@ class Pasien extends CI_Controller {
 		$i->setPaper('A5','landscape');
 		$i->filename="Antrian ".$no_rm.".pdf";
 		$i->load_view('pasien/sejarah/cetak_antrian', $data);
+	}
+
+	public function rb_obat($id)
+	{
+		$where=['id_balita'=>$id];
+			$data = array(
+			'title' => 'Riwayat Obat',
+			'folder' => 'anak',
+			'id_balita'=>$id,
+			'balita'=>$this->db->get_where('balita',$where)->row(),
+			'file' => 'r_obat'
+		);
+		$this->load->view('pasien/template/index', $data);
+	}
+
+	public function ubah_data_diri()
+	{
+	 $where=['no_rekamedis'=>$this->session->userdata('id')];
+	 $data = array(
+	 	'title' => 'Ubah Data Diri',
+	 	'folder' => 'profile' , 
+	 	'file'=>'profile',
+	 	'pasien'=>$this->db->get_where('pasien', $where)->row()
+
+	 );
+	 $this->load->view('pasien/template/index', $data);
 	}
 
 }

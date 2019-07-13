@@ -639,9 +639,13 @@ class Pendaftaran extends CI_Controller {
 		$id=$this->input->post('id');
 		$nama=$this->input->post('name');
 		$email=$this->input->post('email');
+		$telp=$this->input->post('telp');
+		$alamat=$this->input->post('alamat');
 
 		$this->form_validation->set_rules('name', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
+		$this->form_validation->set_rules('telp', 'Telepon', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 
 
 
@@ -657,23 +661,27 @@ class Pendaftaran extends CI_Controller {
 			 if($this->upload->do_upload('foto')){
               //proses upload Gambar
               	$data['foto'] = $image['file_name'];
-				$where = array('id_dokter' => $id);
+				$where = array('id_admin' => $id);
 				$data = array(
-				'nama' => $nama,
+				'nama_admin' => $nama,
 				'email'=>$email,
+				'alamat'=>$alamat,
+				'no_telp'=>$telp,
 				'foto' =>$image['file_name']
 				 );
-              $this->Base_model->update_data($where,$data,'dokter');
+              $this->Base_model->update_data($where,$data,'admin');
             } else{
-            	$where = array('id_dokter' => $id);
+            	$where = array('id_admin' => $id);
 				$data = array(
-				'nama' => $nama,
+				'nama_admin' => $nama,
 				'email'=>$email,
+				'alamat'=>$alamat,
+				'no_telp'=>$telp
 			);
-              $this->Base_model->update_data($where,$data,'dokter');
+              $this->Base_model->update_data($where,$data,'admin');
             }
 
-			$this->Base_model->update_data($where,$data,'dokter');
+			$this->Base_model->update_data($where,$data,'admin');
 			redirect('pendaftaran/account/'.$id,'refresh');
 		} else {
 			redirect('pendaftaran/account/'.$id,'refresh');

@@ -12,6 +12,7 @@
             <a href="<?php echo base_url('pasien/r_obat') ?>" class="collection-item">Riwayat Obat</a>
             <a href="<?php echo base_url('pasien/data_anak') ?>" class="collection-item">Data Anak</a>
             <a href="<?php echo base_url('pasien/cek_jadwal') ?>" class="collection-item">Cek Jadwal Dokter</a>
+             <a href="<?php echo base_url('pasien/ubah_data_diri') ?>" class="collection-item">Ubah Data Diri</a>
           </div>
           <br>
           <br>

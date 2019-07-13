@@ -5,9 +5,10 @@
         <div class="card-content">
           <span class="card-title">Silahkan Tambah data anak</span>
           <form action="<?= base_url('pasien/tambah') ?>" method="post">
+           
       <div class="row">
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate" name="depan">
+          <input id="first_name" type="text" class="validate" name="depan" >
           <label for="first_name">Nama Depan</label>
           <?= form_error('depan', '<small class="red-text pl-4">', '</small>') ?>
         </div>
