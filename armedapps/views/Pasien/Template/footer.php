@@ -35,37 +35,42 @@
 	<script src="<?php echo base_url() . 'assets/js/sweetalert/sweetalert2.all.min.js'; ?>"></script>
 	<script>
 		new WOW().init();
+		//modal
+
+		$(document).ready(function() {
+			$('.modal').modal();
+		});
+
 		//datatable
 		$(document).ready(function() {
 			$("#table-datatable").dataTable();
 		});
 		// combo box
-		$(document).ready(function(){
-   		 $('select').formSelect();
-  		});
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
 
-  		// datepicker
-		$(document).ready(function(){
-	    $('.datepicker').datepicker({
-	    	format:'yyyy-mm-dd'
-	   		 });
-	  	});
-	  	//Sweet Control
-			const flashData = $(".flash-data").data("flashdata");
-			console.log(flashData);
-			if (flashData) {
-				Swal({
-					title: "Terima kasih",
-					text: "Data anda telah " + flashData,
-					type: "success"
-				});
-			}
-			
+		// datepicker
+		$(document).ready(function() {
+			$('.datepicker').datepicker({
+				format: 'yyyy-mm-dd'
+			});
+		});
+		//Sweet Control
+		const flashData = $(".flash-data").data("flashdata");
+		console.log(flashData);
+		if (flashData) {
+			Swal({
+				title: "Terima kasih",
+				text: "Data anda telah " + flashData,
+				type: "success"
+			});
+		}
+
 		instance.open();
 		instance.close();
 		instance.destroy();
-
-		      
 	</script>
 	</body>
-</html>
+
+	</html>

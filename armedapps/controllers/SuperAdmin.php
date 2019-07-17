@@ -15,7 +15,7 @@ class SuperAdmin extends CI_Controller
 		// load model untuk kode otomatis
 		$this->load->model('Generate_code');
 	}
-	
+
 	// landing page
 	public function index()
 	{
@@ -368,7 +368,7 @@ class SuperAdmin extends CI_Controller
 				$this->input->post('tanggal')
 			);
 			$jam_m = f_jam($this->input->post('jam_m'));
-			$jam_a = f_jam($this->input->post('jam_a')) ;
+			$jam_a = f_jam($this->input->post('jam_a'));
 			$data = array(
 				'id_dokter' => $id_dokter,
 				'nama' => $nama,
@@ -402,10 +402,10 @@ class SuperAdmin extends CI_Controller
 		$id = $this->input->post('id');
 		$nama = $this->input->post('name', TRUE);
 		$tanggal = format(
-				$this->input->post('tanggal')
-			);
+			$this->input->post('tanggal')
+		);
 		$jam_m = f_jam($this->input->post('jam_m'));
-		$jam_a = f_jam($this->input->post('jam_a')) ;
+		$jam_a = f_jam($this->input->post('jam_a'));
 
 
 
@@ -528,7 +528,7 @@ class SuperAdmin extends CI_Controller
 			$telp = $this->input->post('telp');
 			$alamat = $this->input->post('alamat');
 			$email = $this->input->post('email');
-			$pj=  $this->input->post('pj');
+			$pj =  $this->input->post('pj');
 			$password = $this->input->post('password1');
 			$foto = 'default.png';
 
@@ -541,7 +541,7 @@ class SuperAdmin extends CI_Controller
 				'tanggal_lahir' => $ta_l,
 				'no_telp' => $telp,
 				'alamat' => $alamat,
-				'pj'=>$pj,
+				'pj' => $pj,
 				'email' => $email,
 				'password' =>  md5($password),
 				'foto' => $foto
@@ -651,21 +651,20 @@ class SuperAdmin extends CI_Controller
 		$this->form_validation->set_rules('id', 'Nama Dokter', 'trim|required');
 		$this->form_validation->set_rules('tanggal_d', 'tanggal', 'trim|required');
 		$this->form_validation->set_rules('kategori', 'kategori', 'trim|required');
-		
 	}
 
 	public function form_daftar($id)
 	{
-			$where = array('no_rekamedis' => $id);
+		$where = array('no_rekamedis' => $id);
 
-			$data = array(
-				'title' => ' Pendaftaran - Armedia',
-				'dokter' => $this->Base_model->get_data('dokter', 'id_dokter')->result(),
-				'edit' => $this->db->query("select * from pasien where no_rekamedis='$id'")->result(),
-				'folder' =>  'daftar',
-				'file' =>  'tambah_daftar'
-			);
-			$this->load->view('superadmin/template/index', $data);
+		$data = array(
+			'title' => ' Pendaftaran - Armedia',
+			'dokter' => $this->Base_model->get_data('dokter', 'id_dokter')->result(),
+			'edit' => $this->db->query("select * from pasien where no_rekamedis='$id'")->result(),
+			'folder' =>  'daftar',
+			'file' =>  'tambah_daftar'
+		);
+		$this->load->view('superadmin/template/index', $data);
 	}
 
 	public function add_daftar()
@@ -673,14 +672,14 @@ class SuperAdmin extends CI_Controller
 	{
 		$this->load->helper('tanggal');
 		$this->rules_daftar();
-		$tanggal_input =format($this->input->post('tanggal_d'));
-			$no_rm = $this->input->post('no_rm');
-			$dokter = $this->input->post('id');
-			$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
-			$no_rawat = $dokter . '-' . $tanggal_input . '-' . $no_regist;
-			$kategori=$this->input->post('kategori');
-	
-		
+		$tanggal_input = format($this->input->post('tanggal_d'));
+		$no_rm = $this->input->post('no_rm');
+		$dokter = $this->input->post('id');
+		$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
+		$no_rawat = $dokter . '-' . $tanggal_input . '-' . $no_regist;
+		$kategori = $this->input->post('kategori');
+
+
 
 		if ($this->form_validation->run() == false) {
 			$where = array('no_rekamedis' => $no_rm);
@@ -694,22 +693,22 @@ class SuperAdmin extends CI_Controller
 			);
 			$this->load->view('superadmin/template/index', $data);
 		} else {
-			$tanggal_input =format($this->input->post('tanggal_d'));
+			$tanggal_input = format($this->input->post('tanggal_d'));
 			$no_rm = $this->input->post('no_rm');
 			$dokter = $this->input->post('id');
 			$kode = str_replace("-", "", $dokter);
 			$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
 			$no_rawat = $kode . '-' . $tanggal_input . '-' . $no_regist;
-			$kategori=$this->input->post('kategori');
+			$kategori = $this->input->post('kategori');
 
 			$data = array(
 				'no_registrasi' => $no_regist,
 				'no_rawat' => $no_rawat,
 				'no_rekamedis' => $no_rm,
 				'tanggal_daftar' => $tanggal_input,
-				'kategori'=>$kategori,
+				'kategori' => $kategori,
 				'id_dokter' => $dokter,
-				'status'=>'1'
+				'status' => '1'
 
 			);
 
@@ -932,14 +931,14 @@ class SuperAdmin extends CI_Controller
 			$id_dokter = $this->input->post('id');
 			$no_rawat = $this->input->post('no_rawat');
 			$hasil = $this->input->post('hasil');
-			$trimester=$this->input->post('trimester');
+			$trimester = $this->input->post('trimester');
 			$tanggal = $this->input->post('tanggal');
 
 			$data = array(
 				'no_rekamedis' => $no_rm,
 				'nama_tindakan' => $tindakan,
 				'id_dokter' => $id_dokter,
-				'trimester'=>$trimester,
+				'trimester' => $trimester,
 				'no_rawat' => $no_rawat,
 				'hasil_periksa' => $hasil,
 				'tanggal' => $tanggal
@@ -958,29 +957,29 @@ class SuperAdmin extends CI_Controller
 			$this->load->view('superadmin/template/index', $data);
 		}
 	}
-	public function masukan_obat($id_obat,$no_rekamedis,$kategori,$no_rawat)
+	public function masukan_obat($id_obat, $no_rekamedis, $kategori, $no_rawat)
 	{
-		$data=array(
-			'id_obat'=>$id_obat,
-			'no_rekamedis'=>$no_rekamedis,
-			'kategori'=>$kategori,
-			'no_rawat'=>$no_rawat
+		$data = array(
+			'id_obat' => $id_obat,
+			'no_rekamedis' => $no_rekamedis,
+			'kategori' => $kategori,
+			'no_rawat' => $no_rawat
 		);
-		$this->Base_model->insert_data($data,'temp_obat');
-		redirect('superadmin/detail_rawat/'.$no_rawat,'refresh');
+		$this->Base_model->insert_data($data, 'temp_obat');
+		redirect('superadmin/detail_rawat/' . $no_rawat, 'refresh');
 	}
 
-	public function m_obat($id_obat,$no_rekamedis,$kategori,$no_rawat,$id_balita)
+	public function m_obat($id_obat, $no_rekamedis, $kategori, $no_rawat, $id_balita)
 	{
-		$data=array(
-			'id_obat'=>$id_obat,
-			'no_rekamedis'=>$no_rekamedis,
-			'kategori'=>$kategori,
-			'no_rawat'=>$no_rawat,
-			'id_balita'=>$id_balita
+		$data = array(
+			'id_obat' => $id_obat,
+			'no_rekamedis' => $no_rekamedis,
+			'kategori' => $kategori,
+			'no_rawat' => $no_rawat,
+			'id_balita' => $id_balita
 		);
-		$this->Base_model->insert_data($data,'temp_obat');
-		redirect('superadmin/detail_riwayat/'.$no_rawat.'/'.$id_balita,'refresh');
+		$this->Base_model->insert_data($data, 'temp_obat');
+		redirect('superadmin/detail_riwayat/' . $no_rawat . '/' . $id_balita, 'refresh');
 	}
 
 
@@ -988,41 +987,41 @@ class SuperAdmin extends CI_Controller
 	public function selesai($no_rawat)
 	{
 		$where = array('no_rawat' => $no_rawat);
-			$data = array(
-				'status' => '2'
-			);
+		$data = array(
+			'status' => '2'
+		);
 
-			$this->Base_model->update_data($where, $data, 'pendaftaran');
-			$this->session->set_flashdata('alert', 'Diselesaikan');
-			redirect('superadmin/Data_tindakan');
+		$this->Base_model->update_data($where, $data, 'pendaftaran');
+		$this->session->set_flashdata('alert', 'Diselesaikan');
+		redirect('superadmin/Data_tindakan');
 	}
 
 	public function pilih_anak($id)
 	{
-			$data = array(
+		$data = array(
 			'title' => 'Armedia - Pilih anak',
 			'daftar' => $this->db->query("select * from pendaftaran where no_rawat='$id'")->row(),
-			'no_rawat'=>$id,
+			'no_rawat' => $id,
 			'folder' => 'tindakan',
 			'file' => 'p_anak',
 		);
 		$this->load->view('superadmin/template/index', $data);
 	}
 
-    public function get_data($no_rawat)
-    {
-    	$id=$this->input->post('id_balita');
-    	$this->detail_riwayat($no_rawat,$id);
-    }
-
-	public function detail_riwayat($no_rawat,$id)
+	public function get_data($no_rawat)
 	{
-		$where=['id_balita'=>$id];
+		$id = $this->input->post('id_balita');
+		$this->detail_riwayat($no_rawat, $id);
+	}
+
+	public function detail_riwayat($no_rawat, $id)
+	{
+		$where = ['id_balita' => $id];
 		// var_dump($where);die();
 		$data = array(
 			'title' => 'Armedia - Detail Riwayat',
 			'daftar' => $this->db->query("select * from pendaftaran where no_rawat='$no_rawat'")->result(),
-			'balita'=> $this->db->get_where('balita',$where)->row(),
+			'balita' => $this->db->get_where('balita', $where)->row(),
 			'obat' => $this->Base_model->get_data('obat', 'id_obat')->result(),
 			'folder' => 'tindakan',
 			'file' => 'b_detail',
@@ -1045,13 +1044,13 @@ class SuperAdmin extends CI_Controller
 			$tindakan = $this->input->post('tindakan');
 			$id_dokter = $this->input->post('id');
 			$no_rawat = $this->input->post('no_rawat');
-			$id_balita=$this->input->post('id_balita');
+			$id_balita = $this->input->post('id_balita');
 			$hasil = $this->input->post('hasil');
 			$tanggal = $this->input->post('tanggal');
 
 			$data = array(
 				'no_rekamedis' => $no_rm,
-				'id_balita'=>$id_balita,
+				'id_balita' => $id_balita,
 				'nama_tindakan' => $tindakan,
 				'id_dokter' => $id_dokter,
 				'no_rawat' => $no_rawat,
@@ -1060,7 +1059,7 @@ class SuperAdmin extends CI_Controller
 			);
 			$this->Base_model->insert_data($data, 'tindakan_balita');
 			$this->session->set_flashdata('alert', 'Ditambah');
-			redirect(base_url() . 'superadmin/detail_riwayat/' . $no_rawat.'/'.$id_balita);
+			redirect(base_url() . 'superadmin/detail_riwayat/' . $no_rawat . '/' . $id_balita);
 		} else {
 
 			$data = array(
@@ -1083,63 +1082,63 @@ class SuperAdmin extends CI_Controller
 			'folder' => 'profile',
 			'file' => 'account',
 		);
-		
+
 		$this->load->view('superadmin/template/index', $data);
 	}
 
 
 
-public function update_profile()
+	public function update_profile()
 	{
-		$id=$this->input->post('id');
-		$nama=$this->input->post('name');
-		$email=$this->input->post('email');
+		$id = $this->input->post('id');
+		$nama = $this->input->post('name');
+		$email = $this->input->post('email');
 
 		$this->form_validation->set_rules('name', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 
 
 
-		if ($this->form_validation->run() == TRUE ) {
+		if ($this->form_validation->run() == TRUE) {
 			$config['upload_path'] = './assets/img/user';
-          	$config['allowed_types'] = 'jpg|png|jpeg';
-          	$config['max_size'] = '2048';
-          	$config['file_name'] = 'profile'.time();
+			$config['allowed_types'] = 'jpg|png|jpeg';
+			$config['max_size'] = '2048';
+			$config['file_name'] = 'profile' . time();
 
-          	$this->load->library('upload',$config);
-          	$image = $this->upload->data();
-			
-			 if($this->upload->do_upload('foto')){
-              //proses upload Gambar
-              	$data['foto'] = $image['file_name'];
+			$this->load->library('upload', $config);
+			$image = $this->upload->data();
+
+			if ($this->upload->do_upload('foto')) {
+				//proses upload Gambar
+				$data['foto'] = $image['file_name'];
 				$where = array('id_owner' => $id);
 				$data = array(
-				'nama' => $nama,
-				'email'=>$email,
-				'foto' =>$image['file_name']
-				 );
-              $this->Base_model->update_data($where,$data,'owner');
-            } else{
-            	$where = array('id_owner' => $id);
+					'nama' => $nama,
+					'email' => $email,
+					'foto' => $image['file_name']
+				);
+				$this->Base_model->update_data($where, $data, 'owner');
+			} else {
+				$where = array('id_owner' => $id);
 				$data = array(
-				'nama' => $nama,
-				'email'=>$email,
-			);
-              $this->Base_model->update_data($where,$data,'owner');
-            }
+					'nama' => $nama,
+					'email' => $email,
+				);
+				$this->Base_model->update_data($where, $data, 'owner');
+			}
 
-			$this->Base_model->update_data($where,$data,'owner');
-			redirect('superadmin/account/'.$id,'refresh');
+			$this->Base_model->update_data($where, $data, 'owner');
+			redirect('superadmin/account/' . $id, 'refresh');
 		} else {
-			redirect('superadmin/account/'.$id,'refresh');
+			redirect('superadmin/account/' . $id, 'refresh');
 		}
 	}
 
 	public function g_pass()
 	{
-		$id=$this->input->post('id');
-		$pass=$this->input->post('password1');
-		$r_pass=$this->input->post('password2');
+		$id = $this->input->post('id');
+		$pass = $this->input->post('password1');
+		$r_pass = $this->input->post('password2');
 
 
 
@@ -1154,18 +1153,17 @@ public function update_profile()
 			'matches' => 'password tidak cocok'
 
 		]);
-		if ($this->form_validation->run() == TRUE ) {
+		if ($this->form_validation->run() == TRUE) {
 
-			$where = array('id_owner' => $id );
+			$where = array('id_owner' => $id);
 			$data = array('password' => md5($pass));
-			$this->Base_model->update_data($where,$data,'owner');
+			$this->Base_model->update_data($where, $data, 'owner');
 
 			$this->session->set_flashdata('alert', 'Diubah');
-			redirect('superadmin','refresh');
-
+			redirect('superadmin', 'refresh');
 		} else {
-			$this->session->set_flashdata('error',form_error('password1'));
-			redirect('superadmin','refresh');
+			$this->session->set_flashdata('error', form_error('password1'));
+			redirect('superadmin', 'refresh');
 		}
 	}
 
@@ -1173,11 +1171,11 @@ public function update_profile()
 	{
 		$data = array(
 			'title' => 'Armedia - Laporan Pasien Terdaftar',
-			'pasien' => $this->Base_model->get_data('pasien','no_rekamedis')->result(),
+			'pasien' => $this->Base_model->get_data('pasien', 'no_rekamedis')->result(),
 			'folder' => 'laporan',
 			'file' => 'pasien',
 		);
-		
+
 		$this->load->view('superadmin/template/index', $data);
 	}
 
@@ -1185,34 +1183,33 @@ public function update_profile()
 	{
 		$this->load->helper('tanggal');
 		$this->load->model('M_Transaksi');
-			$dari = format($this->input->post('dari'));
-          $sampai = format($this->input->post('sampai'));
-          $this->form_validation->set_rules('dari','Dari Tanggal','required');
-          $this->form_validation->set_rules('sampai','Sampai Tanggal','required');
+		$dari = format($this->input->post('dari'));
+		$sampai = format($this->input->post('sampai'));
+		$this->form_validation->set_rules('dari', 'Dari Tanggal', 'required');
+		$this->form_validation->set_rules('sampai', 'Sampai Tanggal', 'required');
 
-          if($this->form_validation->run() != false){
+		if ($this->form_validation->run() != false) {
 
-          // $data['laporan'] = $this->M_Transaksi->generate($dari,$sampai);
+			// $data['laporan'] = $this->M_Transaksi->generate($dari,$sampai);
 
-          $data = array(
-			'title' => 'Armedia - Laporan Kunjungan',
-			'folder' => 'laporan',
-			'laporan'=> $this->M_Transaksi->generate($dari,$sampai),
-			'file' => 'kunjunga_generate',
-		);
-		
-		$this->load->view('superadmin/template/index', $data);
-        }else{
-         $data = array(
-			'title' => 'Armedia - Laporan Kunjungan',
-			'folder' => 'laporan',
-			'file' => 'kunjungan',
-		);
-		
-		$this->load->view('superadmin/template/index', $data);
-        }
+			$data = array(
+				'title' => 'Armedia - Laporan Kunjungan',
+				'folder' => 'laporan',
+				'laporan' => $this->M_Transaksi->generate($dari, $sampai),
+				'file' => 'kunjunga_generate',
+			);
+
+			$this->load->view('superadmin/template/index', $data);
+		} else {
+			$data = array(
+				'title' => 'Armedia - Laporan Kunjungan',
+				'folder' => 'laporan',
+				'file' => 'kunjungan',
+			);
+
+			$this->load->view('superadmin/template/index', $data);
+		}
 	}
-
 }
 
 
