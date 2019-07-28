@@ -34,3 +34,22 @@ function format($date)
     $result =$tahun. '-'. $bulan. '-'. $tgl;
     return ($result);
 }
+
+function kode($date)
+{
+    $tahun = substr($date, 6, 4);
+    $bulan = substr($date, 0, 2);
+    $tgl   = substr($date, 3, 2);
+    $result =$tahun.$bulan. $tgl;
+    return ($result);
+}
+
+function kode1($date)
+{
+    // var_dump($date);die();
+    $tahun = substr($date, 0, 4);
+    $bulan = substr($date, 5, 2);
+    $tgl   = substr($date, 8, 2);
+    $result =$tahun.$bulan. $tgl;
+    return ($result);
+}

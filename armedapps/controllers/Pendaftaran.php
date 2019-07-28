@@ -557,10 +557,11 @@ class Pendaftaran extends CI_Controller {
 		$this->load->helper('tanggal');
 		$this->rules_daftar();
 		$tanggal_input =format($this->input->post('tanggal_d'));
+		$kode=kode($this->input->post('tanggal_d'));
 			$no_rm = $this->input->post('no_rm');
 			$dokter = $this->input->post('id');
 			$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
-			$no_rawat = $dokter . '-' . $tanggal_input . '-' . $no_regist;
+			$no_rawat = $dokter . $kode. $no_regist;
 			$kategori=$this->input->post('kategori');
 	
 		
@@ -577,13 +578,14 @@ class Pendaftaran extends CI_Controller {
 			);
 			$this->load->view('pendaftaran/template/index', $data);
 		} else {
-			$tanggal_input =format($this->input->post('tanggal_d'));
+			$tanggal_input = format($this->input->post('tanggal_d'));
 			$no_rm = $this->input->post('no_rm');
 			$dokter = $this->input->post('id');
 			$kode = str_replace("-", "", $dokter);
+			$tes=kode($this->input->post('tanggal_d'));
 			$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
-			$no_rawat = $kode . '-' . $tanggal_input . '-' . $no_regist;
-			$kategori=$this->input->post('kategori');
+			$no_rawat = $kode  . $tes  . $no_regist;
+			$kategori = $this->input->post('kategori');
 
 			$data = array(
 				'no_registrasi' => $no_regist,

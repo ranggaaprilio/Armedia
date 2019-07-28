@@ -128,13 +128,7 @@
 				<div class="col s12 center">
 					<h3><i class="mdi-content-send brown-text"></i></h3>
 					<h4>Tentang Aplikasi</h4>
-					<p class="left-align light wow slideInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-						scelerisque id nunc
-						nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros.
-						Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget,
-						bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet
-						semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris,
-						non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+					<p class="left-align light wow slideInUp">Aplikasi ini bernama Armedia dikembangkan oleh Rangga Aprilio Utama. Aplikasi ini berguna sebagai media bagi dokter untuk mencatat riwayat rekam medis pasien nya. Dan bagi pasien dapat melakukan melakukan pendaftaran pemeriksaan pada Klinik Sejahtera sekaligus pasien dapat melihat riwayat obat yang telah diberikan oleh dokter.</p>
 				</div>
 			</div>
 
@@ -166,10 +160,12 @@
 
 				</div>
 				<div class="col l6 s13">
-					<h5 class="white-text">Company Bio</h5>
-					<p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat deleniti
-						libero dignissimos magni nesciunt, sint, quidem, porro quod neque deserunt quae. Ratione modi et cumque molestiae
-						incidunt quo ab maxime!</p>
+
+					<h5 class="white-text">Klinik Sejahtera</h5>
+					<p class="grey-text text-lighten-4">Taman Permata indah 2 blok K, Kelurahan Pejagalan, Kecamatan Penjaringan </p>
+					<p class="grey-text text-lighten-4">Jakarta Utara</p>
+					<p class="grey-text text-lighten-4"><b>Telp.(021)6616 588</b></p>
+
 				</div>
 
 			</div>

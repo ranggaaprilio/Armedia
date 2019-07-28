@@ -63,12 +63,14 @@ class Pasien extends CI_Controller
 
 	{
 		$this->load->model('Generate_code');
+		$this->load->helper('tanggal');
 		$this->rules_daftar();
 		$tanggal_input = $this->input->post('tanggal_d');
+		$kode=kode1($this->input->post('tanggal_d'));
 		$no_rm = $this->session->userdata('id');
 		$dokter = $this->input->post('id');
 		$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
-		$no_rawat = $dokter . '-' . $tanggal_input . '-' . $no_regist;
+		$no_rawat = $dokter. $kode. $no_regist;
 		$kategori = $this->input->post('kategori');
 
 

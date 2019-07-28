@@ -96,12 +96,7 @@
                                             <div class="form-group">
                                                 <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox small">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">Remember Me</label>
-                                                </div>
-                                            </div>
+
                                             <button type="submit" class="btn btn-user btn-block" style="background-color: #00897b !important"><strong class="text-white">Sign In</strong></button>
                                             <hr>
                                             <a href="<?= base_url() ?>" class="btn btn-user btn-block btn-outline-primary">
@@ -135,4 +130,4 @@
 
 </body>
 
-</html> 
+</html>

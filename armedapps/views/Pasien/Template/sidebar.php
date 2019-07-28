@@ -3,7 +3,8 @@
       <div class="col s4 m4">
         <div class="card teal">
           <div class="card-image">
-            <img src="<?php echo base_url('assets/img/user/') . $this->session->userdata('foto'); ?>" height="100" width="100" class="responsive-img">
+            <?php $pasien = $this->db->get_where('pasien', ['no_rekamedis' => $this->session->userdata('id')])->row(); ?>
+            <img src="<?php echo base_url('assets/img/user/') . $pasien->foto; ?>" height="100" width="100" class="responsive-img">
             <button data-target="modal1" class=" modal-trigger btn-floating halfway-fab waves-effect waves-light red"><i class="fas fa-plus"></i></button>
             <!-- <a class="btn-floating halfway-fab waves-effect waves-light red" href="<?= base_url('Pasien/dashboard/#modal1') ?>"><i class="fas fa-plus"></i></a> -->
           </div>

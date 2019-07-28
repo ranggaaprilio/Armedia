@@ -19,7 +19,7 @@ $this->load->view('pendaftaran/template/sidebar');
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
                     <h2 class="pageheader-title">Dashboard</h2>
-                    <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                    <p class="pageheader-text"></p>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -35,42 +35,15 @@ $this->load->view('pendaftaran/template/sidebar');
         <!-- ============================================================== -->
         <!-- end pageheader  -->
         <!-- ============================================================== -->
-
+        <h2>Selamat Datang Di halaman Admin</h2>
+        <?php $error = str_replace('<p>', '', $this->session->flashdata('error'));
+        $fix = str_replace('</p>', '', $error) ?>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('alert'); ?>"></div>
+        <div class="flash-error" data-flasherror="<?= $fix ?>"></div>
         <div class="row">
-            <!-- Card Admin -->
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                <?php $error=str_replace('<p>', '', $this->session->flashdata('error'));
-                $fix=str_replace('</p>', '', $error)?>
-                 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('alert'); ?>"></div>
-                  <div class="flash-error" data-flasherror="<?= $fix ?>"></div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">
-                                <span><i class=" fas fa-user-circle" style="font-size:75px;color:#00897b"></i></span>
-                            </div>
-                            <div class="col-8 text-right">
-                                <div class="huge">
-                                    <font size="18"><b><?php echo $this->Base_model->get_data('admin', 'id_admin')->num_rows(); ?></b></font>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div><b>Jumlah Admin yang terdaftar</b></div>
-                        <a href="<?php echo base_url() . 'pendaftaran/Daftar_admin' ?>" style="color: #00897b;
-                            text-decoration: none;">
-                            <div class="panel-footer">
-                                <span class="pull-left">Lihat Detail</span>
-                                <span class="pull-right"><i class="fas fa-arrow-alt-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- End Card Admin -->
+
             <!-- Card Dokter -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -97,36 +70,8 @@ $this->load->view('pendaftaran/template/sidebar');
                 </div>
             </div>
             <!-- End Card Dokter -->
-            <!-- Card obat -->
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">
-                                <span><i class=" fas fa-flask " style="font-size:75px;color:#00897b"></i></span>
-                            </div>
-                            <div class="col-8 text-right">
-                                <div class="huge">
-                                    <font size="18"><b><?php echo $this->Base_model->get_data('obat', 'id_obat')->num_rows(); ?></b></font>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div><b>Jumlah Obat yang terdaftar</b></div>
-                        <a href="<?php echo base_url() . 'pendaftaran/Data_obat' ?>" style="color: #00897b;
-                            text-decoration: none;">
-                            <div class="panel-footer">
-                                <span class="pull-left">Lihat Detail</span>
-                                <span class="pull-right"><i class="fas fa-arrow-alt-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- end card obat -->
             <!-- Card Pasien -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
