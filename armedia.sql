@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Waktu pembuatan: 17 Jul 2019 pada 02.45
+-- Waktu pembuatan: 29 Jul 2019 pada 07.22
 -- Versi server: 5.7.26
 -- Versi PHP: 7.3.5
 
@@ -41,6 +41,13 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id_admin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `email`, `password`, `no_telp`, `alamat`, `foto`, `tgl_input`) VALUES
+('ADM001', 'Ismi Dahlia', 'ismi@gmail.com', '40e0ba990d7ec62b20009bc94a34b771', '098998767655', 'Jalan Barito', 'default.png', '2019-07-26');
+
 -- --------------------------------------------------------
 
 --
@@ -75,6 +82,13 @@ CREATE TABLE IF NOT EXISTS `dokter` (
   `no_telp` varchar(14) NOT NULL,
   PRIMARY KEY (`id_dokter`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `dokter`
+--
+
+INSERT INTO `dokter` (`id_dokter`, `nama`, `alamat`, `email`, `password`, `foto`, `no_telp`) VALUES
+('DKIA001', 'dr. Deana Fitria', 'Jalan Raya Pamulang Tangerang', 'deana@gmail.com', 'f4cbac8a5007c98a76fb29d8b97aaaaf', 'default.png', '0898778787877');
 
 -- --------------------------------------------------------
 
@@ -140,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `owner` (
 --
 
 INSERT INTO `owner` (`id_owner`, `nama`, `email`, `password`, `foto`) VALUES
-(1, 'Rangga Aprilio Utama', 'ranggaap0404@bsi.ac.id', '1e27eec0cbc3f6c50100428251a9e66b', 'profile1558947361');
+(1, 'Rangga Aprilio Utama', 'ranggaap0404@bsi.ac.id', '1e27eec0cbc3f6c50100428251a9e66b', 'profile1563623100');
 
 -- --------------------------------------------------------
 
@@ -164,6 +178,14 @@ CREATE TABLE IF NOT EXISTS `pasien` (
   PRIMARY KEY (`no_rekamedis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pasien`
+--
+
+INSERT INTO `pasien` (`no_rekamedis`, `no_ktp`, `nama_pasien`, `tempat_lahir`, `tanggal_lahir`, `no_telp`, `alamat`, `email`, `password`, `foto`, `pj`) VALUES
+('RMKIA001', '345454555656', 'Irene Anindiya', 'Jakarta', '1990-07-11', '0878989876', 'Jakarta Utara', 'irene@gmail.com', '454d7d1a8583002dc03cb8855b038b4b', 'profile1564307208', 'Zaky Ubaidilah'),
+('RMKIA002', '67677767464746', 'Aisyah Askara', 'Jakarta', '1990-11-29', '0989898876767', 'Jalan Pinus Bogor', 'aisyah@gmail.com', 'd5e2d4a88fc0820f143334cfcc79a885', 'default.png', 'Rezky Aditya');
+
 -- --------------------------------------------------------
 
 --
@@ -173,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `pasien` (
 DROP TABLE IF EXISTS `pendaftaran`;
 CREATE TABLE IF NOT EXISTS `pendaftaran` (
   `no_registrasi` varchar(8) DEFAULT NULL,
-  `no_rawat` varchar(50) NOT NULL,
+  `no_rawat` varchar(19) NOT NULL,
   `no_rekamedis` varchar(12) DEFAULT NULL,
   `tanggal_daftar` date DEFAULT NULL,
   `kategori` enum('Dewasa','Balita') DEFAULT NULL,
@@ -183,6 +205,18 @@ CREATE TABLE IF NOT EXISTS `pendaftaran` (
   KEY `no_rekamedis` (`no_rekamedis`),
   KEY `id_dokter` (`id_dokter`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pendaftaran`
+--
+
+INSERT INTO `pendaftaran` (`no_registrasi`, `no_rawat`, `no_rekamedis`, `tanggal_daftar`, `kategori`, `id_dokter`, `status`) VALUES
+('0001', 'DKIA001201907190001', 'RMKIA002', '2019-07-19', 'Dewasa', 'DKIA001', '2'),
+('0002', 'DKIA001201907190002', 'RMKIA001', '2019-07-19', 'Dewasa', 'DKIA001', '2'),
+('0001', 'DKIA001201907200001', 'RMKIA002', '2019-07-20', 'Dewasa', 'DKIA001', '2'),
+('0002', 'DKIA001201907200002', 'RMKIA001', '2019-07-20', 'Dewasa', 'DKIA001', '2'),
+('0001', 'DKIA001201907210001', 'RMKIA001', '2019-07-21', 'Dewasa', 'DKIA001', '2'),
+('0001', 'DKIA001201907280001', 'RMKIA001', '2019-07-28', 'Dewasa', 'DKIA001', '1');
 
 -- --------------------------------------------------------
 
@@ -203,6 +237,16 @@ CREATE TABLE IF NOT EXISTS `temp_obat` (
   KEY `temp_obat_ibfk_4` (`id_balita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `temp_obat`
+--
+
+INSERT INTO `temp_obat` (`id_obat`, `no_rekamedis`, `kategori`, `no_rawat`, `id_balita`) VALUES
+('KB001', 'RMKIA001', 'Dewasa', 'DKIA001201907200001', NULL),
+('KB001', 'RMKIA002', 'Dewasa', 'DKIA001201907200001', NULL),
+('TB001', 'RMKIA001', 'Dewasa', 'DKIA001201907200002', NULL),
+('TB001', 'RMKIA001', 'Dewasa', 'DKIA001201907210001', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -215,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `tindakan_balita` (
   `id_balita` varchar(10) DEFAULT NULL,
   `nama_tindakan` text NOT NULL,
   `id_dokter` varchar(12) NOT NULL,
-  `no_rawat` varchar(25) NOT NULL,
+  `no_rawat` varchar(19) NOT NULL,
   `hasil_periksa` text NOT NULL,
   `tanggal` date NOT NULL,
   KEY `tindakan_balita_ibfk_1` (`no_rekamedis`),
@@ -236,13 +280,23 @@ CREATE TABLE IF NOT EXISTS `tindakan_hamil` (
   `nama_tindakan` text NOT NULL,
   `id_dokter` varchar(12) NOT NULL,
   `trimester` char(1) NOT NULL,
-  `no_rawat` varchar(25) NOT NULL,
+  `no_rawat` varchar(19) NOT NULL,
   `hasil_periksa` text NOT NULL,
   `tanggal` date NOT NULL,
   KEY `no_rekamedis` (`no_rekamedis`),
   KEY `id_dokter` (`id_dokter`),
   KEY `no_rawat` (`no_rawat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tindakan_hamil`
+--
+
+INSERT INTO `tindakan_hamil` (`no_rekamedis`, `nama_tindakan`, `id_dokter`, `trimester`, `no_rawat`, `hasil_periksa`, `tanggal`) VALUES
+('RMKIA001', 'Suntik KB', 'DKIA001', '0', 'DKIA001201907200001', 'Suntik KB', '2019-07-20'),
+('RMKIA002', 'Suntik KB', 'DKIA001', '0', 'DKIA001201907200001', 'Pasang KB', '2019-07-20'),
+('RMKIA001', 'Pemebrian Vitamin C', 'DKIA001', '1', 'DKIA001201907200002', 'Diyatakan Hamil,Usia Kandungan 2 minggu', '2019-07-20'),
+('RMKIA001', 'USG', 'DKIA001', '1', 'DKIA001201907210001', 'Kondisi janin sehat usi kandungan 2 minngu', '2019-07-21');
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -273,7 +327,6 @@ ALTER TABLE `pendaftaran`
 ALTER TABLE `temp_obat`
   ADD CONSTRAINT `temp_obat_ibfk_1` FOREIGN KEY (`id_obat`) REFERENCES `obat` (`id_obat`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `temp_obat_ibfk_2` FOREIGN KEY (`no_rekamedis`) REFERENCES `pasien` (`no_rekamedis`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `temp_obat_ibfk_3` FOREIGN KEY (`no_rawat`) REFERENCES `pendaftaran` (`no_rawat`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `temp_obat_ibfk_4` FOREIGN KEY (`id_balita`) REFERENCES `tindakan_balita` (`id_balita`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -282,7 +335,6 @@ ALTER TABLE `temp_obat`
 ALTER TABLE `tindakan_balita`
   ADD CONSTRAINT `tindakan_balita_ibfk_1` FOREIGN KEY (`no_rekamedis`) REFERENCES `pasien` (`no_rekamedis`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tindakan_balita_ibfk_3` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tindakan_balita_ibfk_4` FOREIGN KEY (`no_rawat`) REFERENCES `pendaftaran` (`no_rawat`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tindakan_balita_ibfk_5` FOREIGN KEY (`id_balita`) REFERENCES `balita` (`id_balita`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -290,8 +342,7 @@ ALTER TABLE `tindakan_balita`
 --
 ALTER TABLE `tindakan_hamil`
   ADD CONSTRAINT `tindakan_hamil_ibfk_1` FOREIGN KEY (`no_rekamedis`) REFERENCES `pasien` (`no_rekamedis`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tindakan_hamil_ibfk_2` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tindakan_hamil_ibfk_3` FOREIGN KEY (`no_rawat`) REFERENCES `pendaftaran` (`no_rawat`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tindakan_hamil_ibfk_2` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
