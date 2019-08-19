@@ -192,8 +192,8 @@ class SuperAdmin extends CI_Controller
 		$data = array(
 			'title' => 'Kelola dokter-Armedia',
 			'dokter' => $this->Base_model->get_data('dokter', 'id_dokter')->result(),
-			'folder' => 'Dokter',
-			'file' => 'Dokter'
+			'folder' => 'dokter',
+			'file' => 'dokter'
 		);
 		$this->load->view('superadmin/template/index', $data);
 	}
@@ -319,7 +319,7 @@ class SuperAdmin extends CI_Controller
 		$data = array(
 			'title' => 'Jadwal Dokter- Armedia',
 			'jadwal' => $this->Base_model->get_data('jadwal_dokter', 'id_dokter')->result(),
-			'folder' => 'Jadwal',
+			'folder' => 'jadwal',
 			'file' => 'jadwal_dokter'
 		);
 		$this->load->view('superadmin/template/index', $data);
@@ -459,7 +459,7 @@ class SuperAdmin extends CI_Controller
 		$data = array(
 			'title' => 'Data Pasien- Armedia',
 			'pasien' => $this->Base_model->get_data('pasien', 'no_rekamedis')->result(),
-			'folder' => 'Pasien',
+			'folder' => 'pasien',
 			'file' => 'data_pasien'
 		);
 		$this->load->view('superadmin/template/index', $data);
@@ -747,8 +747,8 @@ class SuperAdmin extends CI_Controller
 		$data = array(
 			'title' => 'Kelola Obat-Armedia',
 			'obat' => $this->Base_model->get_data('obat', 'id_obat')->result(),
-			'folder' => 'Obat',
-			'file' => 'Obat'
+			'folder' => 'obat',
+			'file' => 'obat'
 		);
 		$this->load->view('superadmin/template/index', $data);
 	}
