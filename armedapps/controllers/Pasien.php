@@ -11,7 +11,7 @@ class Pasien extends CI_Controller
 	{
 		$data = array(
 			'title' => 'Halaman Pasien',
-			'folder' => 'Landing',
+			'folder' => 'landing',
 			'dokter' => $this->Base_model->get_data('dokter', 'id_dokter')->result(),
 			'daftar' => 0,
 			'file' => 'dashboard'

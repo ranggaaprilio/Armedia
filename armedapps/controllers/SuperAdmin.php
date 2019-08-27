@@ -356,7 +356,7 @@ class SuperAdmin extends CI_Controller
 			$data = array(
 				'title' => 'Jadwal Dokter- Armedia',
 				'dokter' => $this->Base_model->get_data('dokter', 'id_dokter')->result(),
-				'folder' => 'Jadwal',
+				'folder' => 'jadwal',
 				'file' => 'tambah_jadwal'
 			);
 			$this->load->view('superadmin/template/index', $data);
@@ -379,7 +379,7 @@ class SuperAdmin extends CI_Controller
 
 			$this->Base_model->insert_data($data, 'jadwal_dokter');
 			$this->session->set_flashdata('alert', 'Ditambah');
-			redirect(base_url() . 'Superadmin/jadwal_dokter');
+			redirect(base_url() . 'SuperAdmin/jadwal_dokter');
 		}
 	}
 	//Load Tampilan Jadwal
@@ -1219,3 +1219,4 @@ class SuperAdmin extends CI_Controller
 /* Author:Rangga Aprilio Utama */
 /* End of file SuperAdmin.php */
 /* Location: .//C/xampp/htdocs/armedia/armedapps/controllers/SuperAdmin.php */
+/* hayyy im using deepin os*/

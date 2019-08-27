@@ -30,10 +30,10 @@
                     <div class="card-header">
                         <div class="row">
                             <div class=" col-lg-10 col-md-8 col-sm-8 col-xs-8">
-                                <a href="<?php echo base_url() . 'superadmin/add_jadwal'; ?>" class="btn btn-rounded btn-xs text-white" style="background-color: #00897b !important">Tambah Jadwal</a>
+                                <a href="<?php echo base_url() . 'SuperAdmin/add_jadwal'; ?>" class="btn btn-rounded btn-xs text-white" style="background-color: #00897b !important">Tambah Jadwal</a>
                             </div>
                             <div class=" col-lg-2 col-md-4 col-sm-4 col-xs-4">
-                                <a href="<?php echo base_url() . 'superadmin/clear_jadwal'; ?>" class="btn btn-rounded btn-xs text-white btn-danger">Kosongkan Semua Jadwal</a>
+                                <a href="<?php echo base_url() . 'SuperAdmin/clear_jadwal'; ?>" class="btn btn-rounded btn-xs text-white btn-danger">Kosongkan Semua Jadwal</a>
                             </div>
                         </div>
 

@@ -28,7 +28,7 @@
                         <h4 style="font-size: 25px;" class="text-white my-auto">Masukan Jadwal Dokter</h4>
                     </div>
                     <div class="card-body">
-                        <?php echo form_open('superadmin/add_jadwal'); ?>
+                        <?php echo form_open('SuperAdmin/add_jadwal'); ?>
                         <!-- Nama Dokter -->
                         <div class="form-group">
                             <label for="input-select">Nama Dokter</label>
