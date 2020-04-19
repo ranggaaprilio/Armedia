@@ -530,7 +530,7 @@ class SuperAdmin extends CI_Controller
 			$email = $this->input->post('email');
 			$pj =  $this->input->post('pj');
 			$password = $this->input->post('password1');
-			$foto = 'default.png';
+			$foto = 'default';
 
 
 			$data = array(
@@ -673,7 +673,7 @@ class SuperAdmin extends CI_Controller
 		$this->load->helper('tanggal');
 		$this->rules_daftar();
 		$tanggal_input = format($this->input->post('tanggal_d'));
-		$kode=kode($this->input->post('tanggal_d'));
+		$kode = kode($this->input->post('tanggal_d'));
 		$no_rm = $this->input->post('no_rm');
 		$dokter = $this->input->post('id');
 		$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
@@ -699,7 +699,7 @@ class SuperAdmin extends CI_Controller
 			$no_rm = $this->input->post('no_rm');
 			$dokter = $this->input->post('id');
 			$kode = str_replace("-", "", $dokter);
-			$tes=kode($this->input->post('tanggal_d'));
+			$tes = kode($this->input->post('tanggal_d'));
 			$no_regist = $this->Generate_code->noRegistrasiotomatis($tanggal_input, $dokter);
 			$no_rawat = $kode  . $tes  . $no_regist;
 			$kategori = $this->input->post('kategori');

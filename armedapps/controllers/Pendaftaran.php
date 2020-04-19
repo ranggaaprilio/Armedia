@@ -406,7 +406,7 @@ class Pendaftaran extends CI_Controller {
 			$email = $this->input->post('email');
 			$pj=  $this->input->post('pj');
 			$password = $this->input->post('password1');
-			$foto = 'default.png';
+			$foto = 'default';
 
 
 			$data = array(
@@ -728,4 +728,3 @@ class Pendaftaran extends CI_Controller {
 
 /* End of file Pendaftaran.php */
 /* Location: .//D/Web/armedia/armedapps/controllers/Pendaftaran.php */
- ?>
