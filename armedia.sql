@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `owner` (
 --
 
 INSERT INTO `owner` (`id_owner`, `nama`, `email`, `password`, `foto`) VALUES
-(1, 'Rangga Aprilio Utama', 'ranggaap0404@bsi.ac.id', '1e27eec0cbc3f6c50100428251a9e66b', 'profile1563623100');
+(1, 'Rangga Aprilio Utama', 'ranggaap0404@bsi.ac.id', 'e10adc3949ba59abbe56e057f20f883e', 'profile1563623100');
 
 -- --------------------------------------------------------
 
